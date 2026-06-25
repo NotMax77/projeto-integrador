@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    width: 100%;
+    height: 80px;
+    background: rgb(167, 242, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo menu{
+    list-style: none;
+}
+
+.logo img{
+    width: 100px;
+}
