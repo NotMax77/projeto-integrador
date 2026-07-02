@@ -11,22 +11,53 @@
 </head>
 
 <body>
-    <nav class="navbar">
+    <nav class="minha_navbar">
         <!-- LOGO -->
         <div class="logo">
-            <img src="./img/teste1.png" alt="Logo Artifex">
+            <img src="./img/teste.png" alt="Logo Artifex">
         </div>
 
-        <!-- MENU -->
-        <ul class="menu">
-            <li><a href="">Cadastro</a></li>
-        </ul>
+        <div class="direita">
+            <!-- MENU -->
+            <ul class="menu">
+                <li><a href="">Cadastro</a></li>
+            </ul>
 
-        <!-- ÍCONES -->
-        <div class="icons">
-            <a href="" class="user-icon">
-                <i class="fa-solid fa-user"></i>
-            </a>
+            <!-- ÍCONE -->
+            <div class="icone">
+                <a href="" class="user-icon">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="mini_nav">
+        <ul class="menu_mini">
+            <li><a href="#">Guia para bebês</a></li>
+            <li><a href="#">Favoritos</a></li>
+            <li><a href="#">Babás</a></li>
+            <li><a href="#">Contato/Suporte</a></li>
+            <li><a href="#">Sua localização</a></li>
+            <li><a href="#">Histórico</a></li>
+        </ul>
+    </nav>
+
+    <section class="pesquisa-container">
+        <div class="pesquisa">
+            <input type="text" placeholder="Pesquisar itens...">
+            <button>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+    </section>
+
+    <nav class="barra_pesquisa">
+        <div class="pesquisa">
+            <form class="form_pesquisa" role="search">
+                <input  type="search" placeholder="Search" aria-label="Search" />
+                <button type="submit">Search</button>
+            </form>
         </div>
     </nav>
 
