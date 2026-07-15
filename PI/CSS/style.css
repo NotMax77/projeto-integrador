@@ -4,79 +4,160 @@
     box-sizing: border-box;
 }
 
-.minha_navbar{
+.nav_inteira{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.minha_navbar {
     width: 100%;
     height: 80px;
-    background: rgb(192, 246, 255);
+    background: #dff4ff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 60px;
 }
 
-.logo img{
+.logo img {
     width: 150px;
     cursor: pointer;
 }
 
-.direita{
-    display:flex;
-    align-items:center;
-    gap:30px;
+.menu_direito {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
-.menu{
+.menu {
     list-style: none;
     gap: 20px;
     font-size: 18px;
 }
 
-.menu a{
+.menu a {
     text-decoration: none;
     color: black;
 }
 
-.icone{
+.menu a:hover{
+    color: #0d6efd;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -12px;
+    background: rgb(179, 244, 255);
+    min-width: 130px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dropdown-content a{
+    display: block;
+    padding: 12px;
+    color: black;
+}
+
+.dropdown-content a:hover{
+    background:
+    rgba(0,217,255,0.12);
+
+    padding-left:22px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.icone {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
     font-size: 25px;
     cursor: pointer;
 }
 
-.icone a{
+.icone a {
     color: rgb(255, 160, 105);
 }
 
-.mini_nav{
+.mini_nav {
     width: 100%;
     height: 30px;
-    background: rgb(156, 240, 255);
+    background: rgb(179, 244, 255);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.menu_mini{
+.menu_mini {
     display: flex;
     gap: 35px;
     list-style: none;
     font-size: 18px;
 }
 
-.menu_mini a{
+.menu_mini a {
     text-decoration: none;
     color: black;
 }
 
-.pesquisa-container{
+.menu_mini a:hover{
+    color: #0d6efd;
+}
+
+.mapa-babas{
+    width: 90%;
+    margin: 70px auto;
+}
+
+.titulo-mapa{
+    margin-top: 150px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo-mapa h2{
+    font-size: 30px;
+}
+
+.titulo-mapa p{
+    color: #666;
+}
+
+.mapa{
+    position: relative;
+    width: 100%;
+    height: 500px;
+
+    border-radius: 20px;
+
+    background-image: url("img/mapa.jpg");
+    background-size: cover;
+    background-position: center;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+.container-pesquisa {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 30px;
 }
 
-.pesquisa{
+.form_pesquisa {
     width: 60%;
     height: 50px;
     display: flex;
@@ -84,29 +165,184 @@
     border: 2px solid #ccc;
     border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgb(192, 246, 255);
 }
 
-.pesquisa input{
-    flex: 1;
+.form_pesquisa input {
+    width: 100%;
     border: none;
     outline: none;
     padding: 0 20px;
     font-size: 16px;
 }
 
-.pesquisa button{
-    width: 60px;
+.form_pesquisa button {
+    width: 30px;
+    margin-right: 10px;
     border: none;
-    background: rgb(167, 242, 255);
+    background: white;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.pesquisa button:hover{
-    background: rgb(140, 230, 245);
+.form_pesquisa i {
+    font-size: 18px;
+    color: rgb(123, 235, 255);
 }
 
-.pesquisa i{
+.titulo {
+    text-align: center;
+    margin-bottom: 25px;
     font-size: 18px;
+    letter-spacing: 2px;
+    margin-top: 30px;
+}
+
+.mais-avaliadas {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.carrossel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cards {
+    display: flex;
+    gap: 18px;
+    overflow: hidden;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.cards::-webkit-scrollbar{
+    display: none;
+}
+
+.card-baba {
+    min-width: 200px;
+    background: #dff4ff;
+    border-radius: 15px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+    flex: 0 0 250px; /* largura fixa */
+    transition: .3s;
+}
+
+.card-baba:hover {
+    transform: translateY(-6px);
+}
+
+.card-baba img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #6ec8ff;
+    margin-bottom: 10px;
+}
+
+.info {
+    padding: 20px;
+}
+
+.info h3 {
+    margin-bottom: 10px;
+}
+
+.cidade {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.avaliacao {
+    color: #f6b800;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.info button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgb(255, 160, 105);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.info button:hover {
+    background: rgb(243, 140, 75);
+}
+
+.seta {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #88cdf6;
+    color: #fff;
+    padding: 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    font-size: 1.4rem;
+}
+
+.footer-social a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #0d6efd;
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links a {
+        display: block;
+        margin: 8px 0;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
 }

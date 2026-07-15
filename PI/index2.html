@@ -11,56 +11,254 @@
 </head>
 
 <body>
-    <nav class="minha_navbar">
-        <!-- LOGO -->
-        <div class="logo">
-            <img src="./img/teste.png" alt="Logo Artifex">
-        </div>
-
-        <div class="direita">
-            <!-- MENU -->
-            <ul class="menu">
-                <li><a href="">Cadastro</a></li>
-            </ul>
-
-            <!-- ÍCONE -->
-            <div class="icone">
-                <a href="" class="user-icon">
-                    <i class="fa-solid fa-user"></i>
-                </a>
+    <!-- NAVBAR -->
+    <nav class="nav_inteira">
+        <nav class="minha_navbar">
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="./img/teste.png" alt="Logo Artifex">
             </div>
+
+            <div class="menu_direito">
+                <!-- MENU -->
+                <ul class="menu">
+                    <li class="dropdown">
+
+                        <a href="#">Cadastro</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Cadastro cliente</a></li>
+                            <li><a href="#">Cadastro Babá</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- ÍCONE -->
+                <div class="icone">
+                    <a href="login_pais.html" title="Entrar como responsável">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+
+                    <a href="login_baba.html" title="Entrar como babá">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- MINI NAVBAR -->
+        <nav class="mini_nav">
+            <ul class="menu_mini">
+                <li class="dropdown">
+
+                    <a href="#">Guia para bebês</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">0 a 12 meses</a></li>
+                        <li><a href="#">1 a 3 Anos</a></li>
+                        <li><a href="#">4 a 12 Anos</a></li>
+                        <li><a href="#">+ 12 Anos</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+
+                    <a href="#">Status</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Favoritos</a></li>
+                        <li><a href="#">Bloqueados</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Babás</a></li>
+                <li><a href="#">Contato/Suporte</a></li>
+                <li><a href="#">Sua localização</a></li>
+                <li class="dropdown">
+
+                    <a href="#">Histórico</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Histórico de contrato</a></li>
+                        <li><a href="#">Dívidas e pagamentos​</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Sobre Nós</a></li>
+            </ul>
+        </nav>
+    </nav>
+
+    <!-- MAPA -->
+    <section class="mapa-babas">
+        <div class="titulo-mapa">
+            <h2>Encontre uma babá perto de você</h2>
+            <p>Veja no mapa onde estão as babás cadastradas.</p>
         </div>
-    </nav>
 
-    <nav class="mini_nav">
-        <ul class="menu_mini">
-            <li><a href="#">Guia para bebês</a></li>
-            <li><a href="#">Favoritos</a></li>
-            <li><a href="#">Babás</a></li>
-            <li><a href="#">Contato/Suporte</a></li>
-            <li><a href="#">Sua localização</a></li>
-            <li><a href="#">Histórico</a></li>
-        </ul>
-    </nav>
+        <div class="mapa">
+            <div class="marcador marcador1"></div>
+            <div class="marcador marcador2"></div>
+            <div class="marcador marcador3"></div>
+            <div class="marcador marcador4"></div>
+        </div>
+    </section>
 
-    <section class="pesquisa-container">
-        <div class="pesquisa">
-            <input type="text" placeholder="Pesquisar itens...">
-            <button>
+    <!-- PESQUISA -->
+    <section class="container-pesquisa">
+        <form class="form_pesquisa">
+            <input type="text" name="busca" placeholder="Pesquisar Babás..." required>
+            <button type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+    </section>
+
+    <h3 class="titulo">Babás mais avaliadas</h3>
+
+    <!-- Babás mais avaliadas -->
+    <section class="mais-avaliadas">
+        <div class="carrossel">
+
+            <!-- SETA ESQUERDA -->
+            <button class="seta esquerda" onclick="scrollCards(-1)">
+                ❮
+            </button>
+
+            <div class="cards" id="cards">
+                <div class="card-baba">
+                    <img src="img/baba.jpg" alt="Babá">
+
+                    <div class="info">
+                        <h3>Ana Souza</h3>
+                        <p class="cidade">
+                            <i class="fa-solid fa-location-dot"></i>
+                            São Paulo - SP
+                        </p>
+                        <p class="avaliacao">
+                            ⭐ 4.9
+                        </p>
+                        <button>Ver Perfil</button>
+                    </div>
+                </div>
+
+                <div class="card-baba">
+                    <img src="img/baba2.jpg" alt="Babá">
+
+                    <div class="info">
+                        <h3>Mariana Lima</h3>
+                        <p class="cidade">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Campinas - SP
+                        </p>
+                        <p class="avaliacao">
+                            ⭐ 4.9
+                        </p>
+                        <button>Ver Perfil</button>
+                    </div>
+                </div>
+
+                <div class="card-baba">
+                    <img src="img/baba3.jpg" alt="Babá">
+
+                    <div class="info">
+                        <h3>Carla Mendes</h3>
+                        <p class="cidade">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Sorocaba - SP
+                        </p>
+                        <p class="avaliacao">
+                            ⭐ 4.8
+                        </p>
+                        <button>Ver Perfil</button>
+                    </div>
+                </div>
+
+                <div class="card-baba">
+                    <img src="img/baba3.jpg" alt="Babá">
+
+                    <div class="info">
+                        <h3>Carla Mendes</h3>
+                        <p class="cidade">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Sorocaba - SP
+                        </p>
+                        <p class="avaliacao">
+                            ⭐ 4.8
+                        </p>
+                        <button>Ver Perfil</button>
+                    </div>
+                </div>
+
+                <div class="card-baba">
+                    <img src="img/baba3.jpg" alt="Babá">
+
+                    <div class="info">
+                        <h3>Carla Mendes</h3>
+                        <p class="cidade">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Sorocaba - SP
+                        </p>
+                        <p class="avaliacao">
+                            ⭐ 4.8
+                        </p>
+                        <button>Ver Perfil</button>
+                    </div>
+                </div>
+
+                <div class="card-baba">
+                    <img src="img/baba3.jpg" alt="Babá">
+
+                    <div class="info">
+                        <h3>Carla Mendes</h3>
+                        <p class="cidade">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Sorocaba - SP
+                        </p>
+                        <p class="avaliacao">
+                            ⭐ 4.8
+                        </p>
+                        <button>Ver Perfil</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SETA DIREITA -->
+            <button class="seta direita" onclick="scrollCards(1)">
+                ❯
             </button>
         </div>
     </section>
 
-    <nav class="barra_pesquisa">
-        <div class="pesquisa">
-            <form class="form_pesquisa" role="search">
-                <input  type="search" placeholder="Search" aria-label="Search" />
-                <button type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
+    <footer>
+        <footer>
+            <div class="footer-container">
+                <div>
+                    <h2>Minha Empresa</h2><br>
+                    © 2026 Todos os direitos reservados.
+                </div>
 
+                <div class="footer-links">
+                    <a href="#">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Serviços</a>
+                    <a href="#">Contato</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="https://x.com" target="_blank" aria-label="X">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+
+                    <a href="https://web.whatsapp.com" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </footer>
+
+    <script src="js/index.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
