@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/*NAVBAR*/
+/* NAVBAR */
 
 .nav_inteira{
     width: 100%;
@@ -121,41 +121,6 @@
     color: #0d6efd;
 }
 
-.mapa-babas{
-    width: 90%;
-    margin: 70px auto;
-}
-
-.titulo-mapa{
-    margin-top: 150px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.titulo-mapa h2{
-    font-size: 30px;
-}
-
-.titulo-mapa p{
-    color: #666;
-}
-
-/*MAPA*/
-
-.mapa{
-    position: relative;
-    width: 100%;
-    height: 500px;
-
-    border-radius: 20px;
-
-    background-image: url("img/mapa.jpg");
-    background-size: cover;
-    background-position: center;
-
-    box-shadow: 0 5px 15px rgba(0,0,0,.2);
-}
-
 /*PESQUISA*/
 
 .container-pesquisa {
@@ -166,6 +131,7 @@
 }
 
 .form_pesquisa {
+    margin-top: 100px;
     width: 60%;
     height: 50px;
     display: flex;
@@ -199,105 +165,100 @@
     color: rgb(123, 235, 255);
 }
 
-.titulo {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 18px;
-    letter-spacing: 2px;
-    margin-top: 30px;
+/*FILTRO*/
+
+.filtros{
+    width:90%;
+    margin:30px auto;
+    display:flex;
+    align-items:end;
+    gap:20px;
+    flex-wrap:wrap;
+    background:#dff4ff;
+    padding:20px;
+    border-radius:15px;
+}
+
+.filtro{
+    display:flex;
+    flex-direction:column;
+}
+
+.filtro label{
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.filtro select,
+.filtro input{
+    width:180px;
+    height:42px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    padding:0 10px;
+}
+
+.btn-filtrar{
+    height:42px;
+    padding:0 25px;
+    border:none;
+    border-radius:8px;
+    background:#ff9d5c;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn-filtrar:hover{
+    background:#ff8735;
 }
 
 /*CARDS*/
 
-.mais-avaliadas {
-    width: 90%;
-    margin: 40px auto;
+.lista-babas{
+    width:90%;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
 }
 
-.carrossel {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.card-baba{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
 }
 
-.cards {
-    display: flex;
-    gap: 18px;
-    overflow: hidden;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+.card-baba img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
 }
 
-.cards::-webkit-scrollbar{
-    display: none;
+.dados{
+    flex:1;
 }
 
-.card-baba {
-    min-width: 200px;
-    background: #dff4ff;
-    border-radius: 15px;
-    padding: 18px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
-    flex: 0 0 250px; /* largura fixa */
-    transition: .3s;
+.dados h3{
+    margin-bottom:10px;
 }
 
-.card-baba:hover {
-    transform: translateY(-6px);
+.dados p{
+    margin-bottom:6px;
 }
 
-.card-baba img {
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #6ec8ff;
-    margin-bottom: 10px;
-}
-
-.info {
-    padding: 20px;
-}
-
-.info h3 {
-    margin-bottom: 10px;
-}
-
-.cidade {
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.avaliacao {
-    color: #f6b800;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.info button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: rgb(255, 160, 105);
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.info button:hover {
-    background: rgb(243, 140, 75);
-}
-
-.seta {
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 50%;
-    background: white;
-    font-size: 20px;
-    cursor: pointer;
+.acoes button{
+    border:none;
+    background:#ff9d5c;
+    color:white;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
 }
 
 /*FOOTER*/

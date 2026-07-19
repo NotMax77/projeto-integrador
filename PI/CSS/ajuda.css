@@ -121,183 +121,68 @@
     color: #0d6efd;
 }
 
-.mapa-babas{
-    width: 90%;
-    margin: 70px auto;
+.ajuda{
+    width: 80%;
+    margin: 150px auto 80px;
 }
 
-.titulo-mapa{
-    margin-top: 150px;
+.cabecalho-ajuda{
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
-.titulo-mapa h2{
-    font-size: 30px;
+.cabecalho-ajuda h1{
+    font-size: 40px;
+    margin-bottom: 15px;
 }
 
-.titulo-mapa p{
+.cabecalho-ajuda p{
     color: #666;
-}
-
-/*MAPA*/
-
-.mapa{
-    position: relative;
-    width: 100%;
-    height: 500px;
-
-    border-radius: 20px;
-
-    background-image: url("img/mapa.jpg");
-    background-size: cover;
-    background-position: center;
-
-    box-shadow: 0 5px 15px rgba(0,0,0,.2);
-}
-
-/*PESQUISA*/
-
-.container-pesquisa {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.form_pesquisa {
-    width: 60%;
-    height: 50px;
-    display: flex;
-    background: white;
-    border: 2px solid #ccc;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid rgb(192, 246, 255);
-}
-
-.form_pesquisa input {
-    width: 100%;
-    border: none;
-    outline: none;
-    padding: 0 20px;
-    font-size: 16px;
-}
-
-.form_pesquisa button {
-    width: 30px;
-    margin-right: 10px;
-    border: none;
-    background: white;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.form_pesquisa i {
     font-size: 18px;
-    color: rgb(123, 235, 255);
 }
 
-.titulo {
-    text-align: center;
+.faq h2{
     margin-bottom: 25px;
-    font-size: 18px;
-    letter-spacing: 2px;
-    margin-top: 30px;
 }
 
-/*CARDS*/
-
-.mais-avaliadas {
-    width: 90%;
-    margin: 40px auto;
+.faq-item{
+    margin-bottom: 15px;
 }
 
-.carrossel {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.cards {
-    display: flex;
-    gap: 18px;
-    overflow: hidden;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-}
-
-.cards::-webkit-scrollbar{
-    display: none;
-}
-
-.card-baba {
-    min-width: 200px;
-    background: #dff4ff;
-    border-radius: 15px;
-    padding: 18px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
-    flex: 0 0 250px; /* largura fixa */
-    transition: .3s;
-}
-
-.card-baba:hover {
-    transform: translateY(-6px);
-}
-
-.card-baba img {
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #6ec8ff;
-    margin-bottom: 10px;
-}
-
-.info {
-    padding: 20px;
-}
-
-.info h3 {
-    margin-bottom: 10px;
-}
-
-.cidade {
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.avaliacao {
-    color: #f6b800;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.info button {
+.faq-pergunta{
     width: 100%;
-    padding: 12px;
+    background: #dff4ff;
     border: none;
+    padding: 18px 25px;
+    font-size: 17px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+
     border-radius: 10px;
-    background: rgb(255, 160, 105);
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
 }
 
-.info button:hover {
-    background: rgb(243, 140, 75);
-}
+.faq-resposta{
+    display: none;
 
-.seta {
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 50%;
     background: white;
-    font-size: 20px;
-    cursor: pointer;
+
+    padding: 20px;
+
+    border: 1px solid #ddd;
+
+    border-top: none;
+
+    border-radius: 0 0 10px 10px;
+
+    line-height: 1.6;
+}
+
+.faq-item.ativo .faq-resposta{
+    display: block;
 }
 
 /*FOOTER*/

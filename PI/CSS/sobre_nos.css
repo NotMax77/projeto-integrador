@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*NAVBAR*/
+
+.nav_inteira{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.minha_navbar {
+    width: 100%;
+    height: 80px;
+    background: #dff4ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+}
+
+.logo img {
+    width: 150px;
+    cursor: pointer;
+}
+
+.menu_direito {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.menu {
+    list-style: none;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu a:hover{
+    color: #0d6efd;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -12px;
+    background: rgb(179, 244, 255);
+    min-width: 130px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dropdown-content a{
+    display: block;
+    padding: 12px;
+    color: black;
+}
+
+.dropdown-content a:hover{
+    background:
+    rgba(0,217,255,0.12);
+
+    padding-left:22px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.icone {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.icone a {
+    color: rgb(255, 160, 105);
+}
+
+/*MINI NAVBAR*/
+
+.mini_nav {
+    width: 100%;
+    height: 30px;
+    background: rgb(179, 244, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_mini {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    font-size: 18px;
+}
+
+.menu_mini a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu_mini a:hover{
+    color: #0d6efd;
+}
+
+.sobre{
+    width: 90%;
+    margin: 150px auto 80px;
+}
+
+.quem-somos{
+    width: 90%;
+    margin: 170px auto 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+}
+
+.texto{
+    flex: 1.3;
+}
+
+.texto h1{
+    font-size: 48px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.texto p{
+    font-size: 18px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: #555;
+}
+
+.imagem{
+    flex: 1;
+    text-align: center;
+}
+
+.imagem img{
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+.imagem img{
+    width:100%;
+    border-radius:20px;
+}
+
+.missao{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    margin-bottom:80px;
+}
+
+.card{
+    flex:1;
+    background:#dff4ff;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+}
+
+.card i{
+    font-size:45px;
+    color:#ff9d5c;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    line-height:1.6;
+}
+
+.como-funciona{
+    text-align:center;
+    margin-bottom:80px;
+}
+
+.passos{
+    display:flex;
+    justify-content:space-between;
+    gap:25px;
+    margin-top:40px;
+}
+
+.passo{
+    flex:1;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.passo span{
+    display:inline-flex;
+    width:55px;
+    height:55px;
+    background:#88cdf6;
+    color:white;
+    border-radius:50%;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.cta{
+    background:#dff4ff;
+    border-radius:20px;
+    padding:60px;
+    text-align:center;
+}
+
+.cta h2{
+    margin-bottom:20px;
+}
+
+.cta p{
+    margin-bottom:30px;
+}
+
+.cta button{
+    border:none;
+    background:#ff9d5c;
+    color:white;
+    padding:15px 35px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:17px;
+}
+
+.cta button:hover{
+    background:#ff8533;
+}
+
+@media(max-width:900px){
+
+    .quem-somos,
+    .missao,
+    .passos{
+        flex-direction:column;
+    }
+
+}
