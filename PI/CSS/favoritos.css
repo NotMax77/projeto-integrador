@@ -145,10 +145,10 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-top: 40px;
+    margin: auto;
 }
 
 .card-baba {
-    height: 270px;
     position: relative;
     width: 250px;
     margin: auto;
@@ -316,7 +316,7 @@ footer {
     }
 
     .favoritos {
-        width: 95%;
+        width: 100%;
         margin: 130px auto 80px auto;
     }
 
@@ -330,16 +330,13 @@ footer {
     }
 
     .lista-babas {
-        height: auto;
+        width: 90%;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         margin-top: 20px;
     }
 
     .card-baba {
-        width: 100%;
-        max-width: 330px;
-        height: auto;
         margin: 0 auto;
         padding: 20px;
     }
@@ -355,16 +352,5 @@ footer {
 
     .card-baba p {
         font-size: 14px;
-    }
-
-    .card-baba button {
-        padding: 10px;
-        font-size: 15px;
-    }
-
-    .favorito {
-        top: 15px;
-        right: 15px;
-        font-size: 20px;
     }
 }
