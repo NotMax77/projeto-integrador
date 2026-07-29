@@ -6,11 +6,10 @@
 
 /*NAVBAR*/
 
-.nav_inteira{
+.nav_inteira {
     width: 100%;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 999;
 }
 
@@ -46,12 +45,16 @@
     color: black;
 }
 
-.menu a:hover{
+.menu a:hover {
     color: #0d6efd;
 }
 
 .dropdown {
     position: relative;
+}
+
+.dropdown a {
+    cursor: context-menu;
 }
 
 .dropdown-content {
@@ -60,22 +63,21 @@
     top: 100%;
     left: -12px;
     background: rgb(179, 244, 255);
-    min-width: 130px;
+    width: 130px;
     border-radius: 10px;
-    overflow: hidden;
+    list-style: none;
 }
 
-.dropdown-content a{
+.dropdown-content a {
+    cursor: pointer;
     display: block;
     padding: 12px;
     color: black;
 }
 
-.dropdown-content a:hover{
-    background:
-    rgba(0,217,255,0.12);
-
-    padding-left:22px;
+.dropdown-content a:hover {
+    background: rgba(0, 217, 255, 0.12);
+    padding-left: 22px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -117,36 +119,39 @@
     color: black;
 }
 
-.menu_mini a:hover{
+.menu_mini a:hover {
     color: #0d6efd;
 }
 
-.sobre{
+/*SOBRE*/
+
+.sobre {
     width: 90%;
-    margin: 150px auto 80px;
+    margin: 150px auto 80px auto;
 }
 
-.quem-somos{
+.quem-somos {
     width: 90%;
-    margin: 170px auto 100px;
-
+    margin: 170px auto 100px auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 70px;
+    background: #dff4ff;
+    padding: 20px 20px;
+    border-radius: 20px;
 }
 
-.texto{
+.texto {
     flex: 1.3;
 }
 
-.texto h1{
+.texto h1 {
     font-size: 48px;
     margin-bottom: 30px;
     color: #333;
 }
 
-.texto p{
+.texto p {
     font-size: 18px;
     line-height: 1.9;
     margin-bottom: 20px;
@@ -154,119 +159,255 @@
     color: #555;
 }
 
-.imagem{
+.imagem {
     flex: 1;
     text-align: center;
 }
 
-.imagem img{
+.imagem img {
     width: 100%;
     max-width: 500px;
     border-radius: 20px;
 }
 
-.imagem img{
-    width:100%;
-    border-radius:20px;
+.imagem img {
+    width: 100%;
+    border-radius: 20px;
 }
 
-.missao{
-    display:flex;
-    justify-content:space-between;
-    gap:30px;
-    margin-bottom:80px;
+.missao {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 80px;
 }
 
-.card{
-    flex:1;
-    background:#dff4ff;
-    border-radius:20px;
-    padding:35px;
-    text-align:center;
+.card {
+    flex: 1;
+    background: #dff4ff;
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
 }
 
-.card i{
-    font-size:45px;
-    color:#ff9d5c;
-    margin-bottom:20px;
+.card i {
+    font-size: 45px;
+    color: #ff9d5c;
+    margin-bottom: 20px;
 }
 
-.card h3{
-    margin-bottom:15px;
+.card h3 {
+    margin-bottom: 15px;
 }
 
-.card p{
-    line-height:1.6;
+.card p {
+    line-height: 1.6;
 }
 
-.como-funciona{
-    text-align:center;
-    margin-bottom:80px;
+.como-funciona {
+    text-align: center;
+    margin-bottom: 80px;
 }
 
-.passos{
-    display:flex;
-    justify-content:space-between;
-    gap:25px;
-    margin-top:40px;
+.passos {
+    display: flex;
+    gap: 25px;
+    margin-top: 40px;
 }
 
-.passo{
-    flex:1;
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
+.passo {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
 }
 
-.passo span{
-    display:inline-flex;
-    width:55px;
-    height:55px;
-    background:#88cdf6;
-    color:white;
-    border-radius:50%;
-    justify-content:center;
-    align-items:center;
-    font-size:22px;
-    margin-bottom:20px;
+.passo span {
+    display: inline-flex;
+    width: 55px;
+    height: 55px;
+    background: #88cdf6;
+    color: white;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    margin-bottom: 20px;
 }
 
-.cta{
-    background:#dff4ff;
-    border-radius:20px;
-    padding:60px;
-    text-align:center;
+.cta {
+    background: #dff4ff;
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
 }
 
-.cta h2{
-    margin-bottom:20px;
+.cta h2 {
+    margin-bottom: 20px;
 }
 
-.cta p{
-    margin-bottom:30px;
+.cta p {
+    margin-bottom: 30px;
 }
 
-.cta button{
-    border:none;
-    background:#ff9d5c;
-    color:white;
-    padding:15px 35px;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:17px;
+.cta button {
+    border: none;
+    background: #ff9d5c;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
 }
 
-.cta button:hover{
-    background:#ff8533;
+.cta button:hover {
+    background: #ff8533;
 }
 
-@media(max-width:900px){
+/*FOOTER*/
+
+footer {
+    background-color: #88cdf6;
+    color: #fff;
+    padding: 20px;
+}
+
+.footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    font-size: 22px;
+}
+
+.footer-social a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #0d6efd;
+}
+
+/* ICONE CELULAR*/
+
+.hamburguer {
+    font-size: 30px;
+    color: #ff9d5c;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* MENU CELULAR*/
+
+.menu-mobile {
+    position: fixed;
+    top: 80px;
+    right: -300px;
+    width: 280px;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, .15);
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.menu-mobile.ativo {
+    right: 0;
+}
+
+.menu-mobile a {
+    text-decoration: none;
+    color: #333;
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-mobile a:hover {
+    background: #dff4ff;
+}
+
+.acoes-mobile {
+    display: none;
+}
+
+@media (max-width:768px) {
 
     .quem-somos,
     .missao,
-    .passos{
-        flex-direction:column;
+    .passos {
+        flex-direction: column;
     }
 
+    .imagem {
+        display: none;
+    }
+
+    .mini_nav {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .icone {
+        display: none;
+    }
+
+    .minha_navbar {
+        padding: 15px 20px;
+    }
+
+    .acoes-mobile {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-left: auto;
+    }
+
+    .acoes-mobile a {
+        color: rgb(255, 160, 105);
+        font-size: 24px;
+        text-decoration: none;
+    }
+}
+
+@media(max-width:1024px) {
+
+    .missao,
+    .passos {
+        flex-direction: column;
+    }
+
+    .quem-somos {
+        margin: 170px auto 80px auto;
+    }
+
+    .imagem {
+        display: none;
+    }
+
+    .sobre{
+        margin-bottom: 80px;
+    }
 }

@@ -123,175 +123,84 @@
     color: #0d6efd;
 }
 
-/*TITULO*/
+/*LOCALIZACAO*/
 
-.titulo-mapa {
-    margin-top: 150px;
-    text-align: center;
-    margin-bottom: 30px;
+.localizacao{
+    width:100%;
+    margin-top:160px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
-.titulo-mapa h2 {
-    font-size: 30px;
+.localizacao h1{
+    margin-bottom:15px;
 }
 
-.titulo-mapa p {
-    color: #666;
+.localizacao p{
+    color:#666;
+    margin-bottom:35px;
+    text-align:center;
 }
 
-.titulo {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 18px;
-    letter-spacing: 2px;
-    margin-top: 30px;
+.box-localizacao{
+    width:40%;
+    background:white;
+    border-radius:15px;
+    padding:35px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
-/*MAPA*/
-
-.mapa-babas {
-    width: 90%;
-    margin: 70px auto;
+.btn-localizacao{
+    width:100%;
+    height:45px;
+    border:none;
+    border-radius:8px;
+    background:#88cdf6;
+    color:white;
+    cursor:pointer;
+    margin-bottom:20px;
+    font-size:16px;
 }
 
-.mapa {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+.ou{
+    text-align:center;
+    margin-bottom:20px;
+    color:#888;
 }
 
-/*PESQUISA*/
-
-.container-pesquisa {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
 }
 
-.form_pesquisa {
-    width: 60%;
-    height: 50px;
-    display: flex;
-    background: white;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid rgb(192, 246, 255);
+form input,
+form textarea{
+    border:1px solid #ccc;
+    border-radius:8px;
+    padding:12px;
+    font-size:15px;
 }
 
-.form_pesquisa input {
-    width: 100%;
-    border: none;
-    padding: 0 20px;
-    font-size: 16px;
+textarea{
+    resize:none;
+    height:100px;
 }
 
-.form_pesquisa button {
-    width: 30px;
-    margin-right: 10px;
-    border: none;
-    background: white;
-    cursor: pointer;
-}
-
-.form_pesquisa i {
-    font-size: 18px;
-    color: rgb(123, 235, 255);
-}
-
-/*CARDS*/
-
-.mais-avaliadas {
-    width: 90%;
-    margin: 40px auto;
-}
-
-.carrossel {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.cards {
-    display: flex;
-    gap: 18px;
-    overflow: hidden;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-}
-
-.cards::-webkit-scrollbar {
-    display: none;
-}
-
-.card-baba {
-    background: #dff4ff;
-    border-radius: 15px;
-    padding: 18px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
-    flex: 0 0 250px;
-    transition: .3s;
-}
-
-.card-baba:hover {
-    transform: translateY(-6px);
-}
-
-.card-baba img {
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #6ec8ff;
-    margin-bottom: 10px;
-}
-
-.info h3 {
-    margin-bottom: 10px;
-}
-
-.cidade {
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.avaliacao {
-    color: #f6b800;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.info button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: rgb(255, 160, 105);
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.info button:hover {
-    background: rgb(243, 140, 75);
-}
-
-.seta {
-    width: 50px;
-    height: 50px;
-    border: none;
-    background: white;
-    font-size: 20px;
-    cursor: pointer;
+.btn-salvar{
+    border:none;
+    height:45px;
+    background:#ff9d5c;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
 }
 
 /*FOOTER*/
 
 footer {
+    margin-top: 60px;
     background-color: #88cdf6;
     color: #fff;
     padding: 20px;
@@ -331,7 +240,7 @@ footer {
     color: #0d6efd;
 }
 
-/* ICONE CELULAR*/
+/* ICONE CELULAR */
 
 .hamburguer {
     font-size: 30px;
@@ -340,7 +249,7 @@ footer {
     margin-left: auto;
 }
 
-/* MENU CELULAR*/
+/* MENU CELULAR */
 
 .menu-mobile {
     position: fixed;
@@ -404,5 +313,13 @@ footer {
         color: rgb(255, 160, 105);
         font-size: 24px;
         text-decoration: none;
+    }
+
+    .localizacao{
+        margin-top: 120px;
+    }
+
+    .box-localizacao{
+        width: 70%;
     }
 }

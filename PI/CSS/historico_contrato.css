@@ -133,7 +133,6 @@
 }
 
 .form_pesquisa {
-    margin-top: 100px;
     width: 60%;
     height: 50px;
     display: flex;
@@ -164,98 +163,108 @@
     color: rgb(123, 235, 255);
 }
 
-/*FILTRO*/
+/*HISTÓRICO*/
+
+.historico {
+    width: 90%;
+    margin: 160px auto;
+}
+
+.historico h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #666;
+    margin-bottom: 35px;
+}
 
 .filtros {
-    width: 90%;
-    margin: 30px auto;
     display: flex;
-    align-items: end;
-    gap: 20px;
-    flex-wrap: wrap;
-    background: #dff4ff;
-    padding: 20px;
-    border-radius: 15px;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
 }
 
-.filtro {
-    display: flex;
-    flex-direction: column;
-}
-
-.filtro label {
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-.filtro select {
-    width: 180px;
-    height: 42px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 0 0 0 10px;
-}
-
-.btn-filtrar {
-    height: 42px;
-    padding: 0 25px;
+.filtros button {
+    margin-top: 30px;
     border: none;
-    border-radius: 8px;
-    background: #ff9d5c;
-    color: white;
+    background: #ececec;
+    padding: 10px 20px;
+    border-radius: 20px;
     cursor: pointer;
-    font-weight: bold;
 }
 
-.btn-filtrar:hover {
-    background: #ff8735;
+.filtros .ativo {
+    background: #88cdf6;
+    color: white;
 }
 
-/*CARDS*/
-
-.lista-babas {
-    width: 90%;
-    margin: 40px auto;
-    display: grid; /*organiza em grade*/
-    grid-template-columns: repeat(2, 1fr); /*cria 2 colunas de mesma largura*/
-    gap: 25px;
-}
-
-.card-baba {
+.card-contrato {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
     background: #dff4ff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+    padding: 25px;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    margin-bottom: 25px;
 }
 
-.card-baba img {
-    width: 120px;
-    height: 120px;
+.foto img {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.dados {
-    flex: 1; /*ocupa todo o espaço disponível*/
+.coluna {
+    flex: 1;
 }
 
-.dados h3 {
-    margin-bottom: 10px;
+.coluna h4 {
+    margin-bottom: 12px;
+    color: #444;
+    font-size: 17px;
 }
 
-.dados p {
-    margin-bottom: 6px;
+.coluna p {
+    margin: 6px 0;
+    color: #555;
+    font-size: 15px;
 }
 
-.acoes button {
+.status {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.andamento {
+    background: #28a745;
+}
+
+.finalizado {
+    background: #0d6efd;
+}
+
+.cancelado {
+    background: #dc3545;
+}
+
+.coluna button {
+    display: block;
+    margin-top: 15px;
     border: none;
     background: #ff9d5c;
     color: white;
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
@@ -301,7 +310,7 @@ footer {
     color: #0d6efd;
 }
 
-/* ICONE CELULAR */
+/* ICONE CELULAR*/
 
 .hamburguer {
     font-size: 30px;
@@ -310,7 +319,7 @@ footer {
     margin-left: auto;
 }
 
-/* MENU CELULAR */
+/* MENU CELULAR*/
 
 .menu-mobile {
     position: fixed;
@@ -376,97 +385,45 @@ footer {
         text-decoration: none;
     }
 
-    .filtros {
-        width: 95%;
-        padding: 15px;
+    .historico {
+        margin-top: 120px;
+        margin-bottom: 80px;
+    }
+
+    .card-contrato {
         display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .filtro {
-        width: 100%;
-    }
-
-    .filtro label {
-        margin-bottom: 6px;
-    }
-
-    .filtro select {
-        width: 100%;
-    }
-
-    .btn-filtrar {
-        width: 100%;
-        height: 45px;
-        margin-top: 5px;
-    }
-
-    .lista-babas {
-        width: 95%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .card-baba {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        text-align: center;
-        padding: 15px;
-        gap: 10px;
-    }
-
-    .card-baba img {
-        width: 70px;
-        height: 70px;
-    }
-
-    .dados h3 {
-        font-size: 16px;
-    }
-
-    .dados p {
-        font-size: 13px;
-        margin-bottom: 5px;
-    }
-
-    .acoes {
-        width: 100%;
-    }
-
-    .acoes button {
-        width: 100%;
-        padding: 8px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width:1024px){
-    .filtros {
-        width: 95%;
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
         gap: 15px;
+        padding: 15px;
     }
 
-    .filtro {
-        width: 100%;
+    .foto img {
+        width: 65px;
+        height: 65px;
     }
 
-    .filtro label {
+    .coluna {
+        flex: 1;
+    }
+
+    .coluna h4 {
+        font-size: 15px;
         margin-bottom: 6px;
     }
 
-    .filtro select {
-        width: 100%;
+    .coluna p {
+        font-size: 13px;
+        margin: 4px 0;
     }
 
-    .btn-filtrar {
-        width: 100%;
-        height: 45px;
-        margin-top: 5px;
+    .status {
+        font-size: 12px;
+        padding: 6px 12px;
+        margin-bottom: 10px;
+    }
+
+    .coluna button {
+        padding: 8px 12px;
+        font-size: 13px;
     }
 }

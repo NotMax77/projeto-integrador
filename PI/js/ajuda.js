@@ -1,13 +1,19 @@
-const perguntas = document.querySelectorAll(".faq-pergunta");
+const perguntas = document.querySelectorAll(".faq-pergunta"); /*procura todas as perguntas do FAQ.*/
+perguntas.forEach(pergunta => { /*Percorre cada pergunta encontrada.*/
 
-perguntas.forEach(pergunta => {
+    pergunta.addEventListener("click", () => { /*quando o usuário clicar em uma pergunta, execute o código abaixo.*/
 
-    pergunta.addEventListener("click", () => {
+        const item = pergunta.parentElement; /*pega o elemento pai da pergunta*/
 
-        const item = pergunta.parentElement;
-
-        item.classList.toggle("ativo");
-
+        item.classList.toggle("ativo"); /*adiciona ou remove a classe ativo*/
     });
-
 });
+/*foreach, para cada elemento da lista, faça alguma coisa*/
+/*pergunta =>, representa uma pergunta da lista por vez*/
+
+function abrirMenu(){
+    document
+    .getElementById("menuMobile")
+    .classList
+    .toggle("ativo");
+}

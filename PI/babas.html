@@ -21,6 +21,21 @@
                 </a>
             </div>
 
+            <!-- ICONES MOBILE -->
+            <div class="acoes-mobile">
+                <a href="" title="Entrar como responsável">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+
+                <a href="" title="Entrar como babá">
+                    <i class="fa-solid fa-user-nurse"></i>
+                </a>
+
+                <div class="hamburguer" onclick="abrirMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+
             <div class="menu_direito">
                 <!-- MENU -->
                 <ul class="menu">
@@ -36,11 +51,11 @@
 
                 <!-- ÍCONE -->
                 <div class="icone">
-                    <a href="login_pais.html" title="Entrar como responsável">
+                    <a href="" title="Entrar como responsável">
                         <i class="fa-solid fa-user"></i>
                     </a>
 
-                    <a href="login_baba.html" title="Entrar como babá">
+                    <a href="" title="Entrar como babá">
                         <i class="fa-solid fa-user-nurse"></i>
                     </a>
                 </div>
@@ -60,25 +75,21 @@
                         <li><a href="#">+ 12 Anos</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
 
-                    <a href="#">Status</a>
-                    <ul class="dropdown-content">
-                        <li><a href="#">Favoritos</a></li>
-                        <li><a href="#">Bloqueados</a></li>
-                    </ul>
-                </li>
+                <li><a href="favoritos.html">Favoritos</a></li>
                 <li><a href="babas.html">Babás</a></li>
                 <li><a href="ajuda.html">Ajuda</a></li>
-                <li><a href="#">Sua localização</a></li>
+                <li><a href="sua_localizacao.html">Sua localização</a></li>
+
                 <li class="dropdown">
 
                     <a href="#">Histórico</a>
                     <ul class="dropdown-content">
-                        <li><a href="#">Histórico de contrato</a></li>
-                        <li><a href="#">Dívidas e pagamentos​</a></li>
+                        <li><a href="historico_contrato.html">Histórico de contrato</a></li>
+                        <li><a href="dividas_pagamentos.html">Dívidas e pagamentos​</a></li>
                     </ul>
                 </li>
+                
                 <li><a href="sobre_nos.htm">Sobre Nós</a></li>
             </ul>
         </nav>
@@ -95,27 +106,33 @@
     </section>
 
     <!-- FILTRO -->
-
     <section class="filtros">
+
+        <div class="filtro">
+            <label>Estado</label>
+
+            <select name="estado">
+                <option value="">Todas</option>
+            </select>
+        </div>
 
         <div class="filtro">
             <label>Cidade</label>
 
             <select name="cidade">
                 <option value="">Todas</option>
-                <!-- Futuro banco de dados -->
             </select>
         </div>
 
         <div class="filtro">
-            <label>Faixa etária</label>
+            <label>Preferências</label>
 
-            <select name="idade">
+            <select name="preferencias">
                 <option value="">Todas</option>
-                <option>0 a 1 ano</option>
-                <option>1 a 3 anos</option>
-                <option>4 a 12 anos</option>
-                <option>Acima de 12 anos</option>
+                <option>Recém-nascidos</option>
+                <option>Crianças</option>
+                <option>Adolecentes</option>
+                <option>Cuidados especiais</option>
             </select>
         </div>
 
@@ -131,14 +148,9 @@
         </div>
 
         <div class="filtro">
-            <label>Valor máximo</label>
-            <input type="number" placeholder="R$">
-        </div>
-
-        <div class="filtro">
             <label>Disponibilidade</label>
 
-            <select>
+            <select name="disponibilidade">
                 <option>Todas</option>
                 <option>Manhã</option>
                 <option>Tarde</option>
@@ -153,14 +165,13 @@
     </section>
 
     <!-- LISTA DE BABÁS -->
-
     <section class="lista-babas">
 
         <div class="card-baba">
             <img src="img/baba.jpg" alt="">
 
             <div class="dados">
-                <h3>Ana Silva</h3>
+                <h3>Ana Souza</h3>
 
                 <p>
                     <i class="fa-solid fa-location-dot"></i>
@@ -168,8 +179,7 @@
                 </p>
 
                 <p>⭐ 4.9 (125 avaliações)</p>
-                <p>💰 R$ 35/hora</p>
-                <p>👶 Recém-nascidos • Crianças • Primeiros socorros</p>
+                <p>👶 Recém-nascidos • Crianças</p>
             </div>
 
             <div class="acoes">
@@ -178,7 +188,47 @@
         </div>
 
         <div class="card-baba">
-            <img src="img/baba.jpg" alt="">
+            <img src="img/Mídia.jpg" alt="">
+
+            <div class="dados">
+                <h3>Mariana Lima</h3>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    São Paulo - SP
+                </p>
+
+                <p>⭐ 4.9 (125 avaliações)</p>
+                <p>👶 Recém-nascidos • Crianças</p>
+            </div>
+
+            <div class="acoes">
+                <button>Ver Perfil</button>
+            </div>
+        </div>
+
+        <div class="card-baba">
+            <img src="img/Mídia (1).jpg" alt="">
+
+            <div class="dados">
+                <h3>Carla Mendes</h3>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    São Paulo - SP
+                </p>
+
+                <p>⭐ 4.9 (125 avaliações)</p>
+                <p>👶 Recém-nascidos • Crianças</p>
+            </div>
+
+            <div class="acoes">
+                <button>Ver Perfil</button>
+            </div>
+        </div>
+
+        <div class="card-baba">
+            <img src="img/Mídia (2).jpg" alt="">
 
             <div class="dados">
                 <h3>Ana Silva</h3>
@@ -189,50 +239,7 @@
                 </p>
 
                 <p>⭐ 4.9 (125 avaliações)</p>
-                <p>💰 R$ 35/hora</p>
-                <p>👶 Recém-nascidos • Crianças • Primeiros socorros</p>
-            </div>
-
-            <div class="acoes">
-                <button>Ver Perfil</button>
-            </div>
-        </div>
-
-        <div class="card-baba">
-            <img src="img/baba.jpg" alt="">
-
-            <div class="dados">
-                <h3>Ana Silva</h3>
-
-                <p>
-                    <i class="fa-solid fa-location-dot"></i>
-                    São Paulo - SP
-                </p>
-
-                <p>⭐ 4.9 (125 avaliações)</p>
-                <p>💰 R$ 35/hora</p>
-                <p>👶 Recém-nascidos • Crianças • Primeiros socorros</p>
-            </div>
-
-            <div class="acoes">
-                <button>Ver Perfil</button>
-            </div>
-        </div>
-
-        <div class="card-baba">
-            <img src="img/baba.jpg" alt="">
-
-            <div class="dados">
-                <h3>Ana Silva</h3>
-
-                <p>
-                    <i class="fa-solid fa-location-dot"></i>
-                    São Paulo - SP
-                </p>
-
-                <p>⭐ 4.9 (125 avaliações)</p>
-                <p>💰 R$ 35/hora</p>
-                <p>👶 Recém-nascidos • Crianças • Primeiros socorros</p>
+                <p>👶 Recém-nascidos • Crianças</p>
             </div>
 
             <div class="acoes">
@@ -250,11 +257,12 @@
                 </div>
 
                 <div class="footer-links">
-                    <a href="#">Início</a>
-                    <a href="#">Sobre</a>
-                    <a href="#">Serviços</a>
-                    <a href="#">Contato</a>
+                    <a href="index.html">Início</a>
+                    <a href="sobre_nos.htm">Sobre</a>
+                    <a href="babas.html">Serviços</a>
+                    <a href="ajuda.html">Contato</a>
                 </div>
+                
                 <div class="footer-social">
                     <a href="https://facebook.com" target="_blank" aria-label="Facebook">
                         <i class="fab fa-facebook-f"></i>
@@ -276,6 +284,19 @@
         </footer>
     </footer>
 
+    <div class="menu-mobile" id="menuMobile">
+        <a href="index.html">🏠 Home</a>
+        <a href="#">👶 Guia para bebês</a>
+        <a href="favoritos.html">❤️ Favoritos</a>
+        <a href="babas.html">👩 Babás</a>
+        <a href="ajuda.html">📞 Ajuda</a>
+        <a href="sua_localizacao.html">📍 Sua localização</a>
+        <a href="historico_contrato.html">📜 Histórico</a>
+        <a href="dividas_pagamentos.html">💳 Pagamentos</a>
+        <a href="sobre_nos.html">ℹ️ Sobre nós</a>
+    </div>
+
+    <script src="js/babas.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
