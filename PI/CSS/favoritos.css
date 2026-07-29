@@ -127,7 +127,7 @@
 
 .favoritos {
     width: 90%;
-    margin: 160px auto 80px;
+    margin: 160px auto 80px auto;
 }
 
 .favoritos h1 {
@@ -141,7 +141,6 @@
 }
 
 .lista-babas {
-    height: 350px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
@@ -314,5 +313,58 @@ footer {
         color: rgb(255, 160, 105);
         font-size: 24px;
         text-decoration: none;
+    }
+
+    .favoritos {
+        width: 95%;
+        margin: 130px auto 80px auto;
+    }
+
+    .favoritos h1 {
+        font-size: 28px;
+    }
+
+    .subtitulo {
+        font-size: 15px;
+        margin: 10px 0 30px;
+    }
+
+    .lista-babas {
+        height: auto;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .card-baba {
+        width: 100%;
+        max-width: 330px;
+        height: auto;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .card-baba img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card-baba h3 {
+        font-size: 20px;
+    }
+
+    .card-baba p {
+        font-size: 14px;
+    }
+
+    .card-baba button {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .favorito {
+        top: 15px;
+        right: 15px;
+        font-size: 20px;
     }
 }
