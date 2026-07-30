@@ -142,7 +142,6 @@
 .titulo {
     text-align: center;
     margin-bottom: 25px;
-    font-size: 18px;
     letter-spacing: 2px;
     margin-top: 30px;
 }
@@ -177,7 +176,7 @@
     display: flex;
     background: white;
     border-radius: 30px;
-    overflow: hidden;
+    overflow: hidden; /* esconde o conteúdo que ultrapassa os limites do container */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid rgb(192, 246, 255);
 }
@@ -219,8 +218,7 @@
     display: flex;
     gap: 18px;
     overflow: hidden;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* faz a rolagem acontecer suavemente */
 }
 
 .cards::-webkit-scrollbar {
@@ -233,7 +231,7 @@
     padding: 18px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
-    flex: 0 0 250px;
+    flex: 0 0 250px; /* o card não aumenta nem diminui e fica com 250px */
     transition: .3s;
 }
 
@@ -302,7 +300,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* quebra os elementos para a próxima linha quando faltar espaço */
     gap: 20px;
 }
 
@@ -313,7 +311,7 @@ footer {
 }
 
 .footer-links a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* coloca um sublinhado no texto */
 }
 
 .footer-social {
@@ -324,7 +322,7 @@ footer {
 
 .footer-social a {
     color: #fff;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /* faz a mudança de cor acontecer suavemente em 0,3 segundos */
 }
 
 .footer-social a:hover {
