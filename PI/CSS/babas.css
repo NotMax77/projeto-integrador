@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
 /*NAVBAR*/
 
 .nav_inteira {
@@ -129,11 +143,10 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 30px;
 }
 
 .form_pesquisa {
-    margin-top: 100px;
+    margin-top: 150px;
     width: 60%;
     height: 50px;
     display: flex;
@@ -172,13 +185,13 @@
     display: flex;
     align-items: end;
     gap: 20px;
-    flex-wrap: wrap;
     background: #dff4ff;
     padding: 20px;
     border-radius: 15px;
 }
 
 .filtro {
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
@@ -189,7 +202,7 @@
 }
 
 .filtro select {
-    width: 180px;
+    width: 1fr;
     height: 42px;
     border: 1px solid #ccc;
     border-radius: 8px;

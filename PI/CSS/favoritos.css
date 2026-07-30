@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
 /*NAVBAR*/
 
 .nav_inteira {
@@ -126,7 +140,7 @@
 /*FAVORITOS*/
 
 .favoritos {
-    width: 90%;
+    width: 80%;
     margin: 160px auto 80px auto;
 }
 
@@ -143,8 +157,7 @@
 .lista-babas {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    margin-top: 40px;
+    gap: 15px;
     margin: auto;
 }
 

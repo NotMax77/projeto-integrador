@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
 /*NAVBAR*/
 
 .nav_inteira {
@@ -168,7 +182,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 30px;
 }
 
 .form_pesquisa {

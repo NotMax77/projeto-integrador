@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
 /*NAVBAR*/
 
 .nav_inteira {
@@ -132,7 +146,7 @@
 
 .quem-somos {
     width: 90%;
-    margin: 170px auto 100px auto;
+    margin: 80px auto 100px auto;
     display: flex;
     align-items: center;
     gap: 70px;
@@ -400,7 +414,7 @@ footer {
     }
 
     .quem-somos {
-        margin: 170px auto 80px auto;
+        margin: 50px auto 80px auto;
     }
 
     .imagem {
