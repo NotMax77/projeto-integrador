@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>projeto</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="CSS/login.css">
+ 
+ 
+</head>
+<body>
+ 
+<div class="container">
+ 
+    <div class="card">
+ 
+ 
+        <h2>Bem-vindo!</h2>
+ 
+        <p class="subtitulo">
+            Entre para encontrar a babá ideal ou acessar sua conta.
+        </p>
+ 
+        <form action="login.php" method="POST">
+ 
+            <label>E-mail</label>
+            <input
+                type="email"
+                name="email"
+                placeholder="Digite seu e-mail"
+                required
+            >
+ 
+            <label>Senha</label>
+            <input
+                type="password"
+                name="senha"
+                placeholder="Digite sua senha"
+                required
+            >
+ 
+            <div class="esqueceu">
+                <a href="esqueceu-senha.html">
+                    Esqueceu a senha?
+                </a>
+            </div>
+ 
+            <button type="submit">
+                Entrar
+            </button>
+ 
+        </form>
+ 
+        <div class="cadastro">
+            Ainda não possui uma conta?
+            <br><br>
+            <a href="cadastro.html">
+                Criar uma conta
+            </a>
+        </div>
+ 
+    </div>
+ 
+</div>
