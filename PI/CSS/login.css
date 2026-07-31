@@ -1,119 +1,457 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
- 
-body{
-    background:#f4f7fb;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+
+html {
+    height: 100%;
 }
- 
-.container{
-    width:100%;
-    max-width:420px;
-    padding:20px;
+
+body {
+    font-family: "Nunito", sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
- 
-.card{
-    background:#fff;
-    padding:35px;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+footer {
+    margin-top: auto;
 }
- 
- 
-h2{
-    text-align:center;
-    margin-bottom:8px;
-    color:#333;
+
+h1,
+h2,
+h3,
+h4,
+.menu a,
+button {
+    font-family: "Poppins", sans-serif;
 }
- 
-.subtitulo{
-    text-align:center;
-    color:#777;
-    margin-bottom:30px;
-    font-size:15px;
+
+/*NAVBAR*/
+
+.nav_inteira {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
 }
- 
-label{
-    display:block;
-    margin-bottom:8px;
-    margin-top:18px;
-    color:#555;
-    font-weight:bold;
+
+.minha_navbar {
+    width: 100%;
+    height: 80px;
+    background: #dff4ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
 }
- 
-input{
-    width:100%;
-    padding:14px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:15px;
-    transition:.3s;
+
+.logo img {
+    width: 150px;
+    cursor: pointer;
 }
- 
-input:focus{
-    outline:none;
-    border-color:#88cdf6;
+
+.menu_direito {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
- 
-.esqueceu{
-    text-align:right;
-    margin-top:10px;
+
+.menu {
+    list-style: none;
+    gap: 20px;
+    font-size: 18px;
 }
- 
-.esqueceu a{
-    text-decoration:none;
-    color:#88cdf6;
-    font-size:14px;
+
+.menu a {
+    text-decoration: none;
+    color: black;
 }
- 
-.esqueceu a:hover{
-    text-decoration:underline;
+
+.menu a:hover {
+    color: #0d6efd;
 }
- 
-button{
-    width:100%;
-    margin-top:25px;
-    padding:15px;
-    border:none;
-    background:#88cdf6;
-    color:white;
-    font-size:16px;
-    border-radius:8px;
-    cursor:pointer;
-    transition:.3s;
+
+.dropdown {
+    position: relative;
 }
- 
-button:hover{
-    background:#88cdf6;
+
+.dropdown a {
+    cursor: context-menu;
 }
- 
-.cadastro{
-    margin-top:25px;
-    text-align:center;
-    color:#555;
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -12px;
+    background: rgb(179, 244, 255);
+    width: 130px;
+    border-radius: 10px;
+    list-style: none;
 }
- 
-.cadastro a{
-    color:#88cdf6;
-    text-decoration:none;
-    font-weight:bold;
+
+.dropdown-content a {
+    cursor: pointer;
+    display: block;
+    padding: 12px;
+    color: black;
 }
- 
-.cadastro a:hover{
-    text-decoration:underline;
+
+.dropdown-content a:hover {
+    background: rgba(0, 217, 255, 0.12);
+    padding-left: 22px;
 }
- 
-@media(max-width:480px){
- 
-.card{
-    padding:25px;
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
- 
+
+.icone {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.icone a {
+    color: rgb(255, 160, 105);
+}
+
+/*MINI NAVBAR*/
+
+.mini_nav {
+    width: 100%;
+    height: 30px;
+    background: rgb(179, 244, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_mini {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    font-size: 18px;
+}
+
+.menu_mini a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu_mini a:hover {
+    color: #0d6efd;
+}
+
+.container {
+    margin: auto;
+    margin-top: 150px;
+    max-width: 420px;
+}
+
+.card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 18px;
+    color: #555;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: .3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #88cdf6;
+}
+
+.esqueceu {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.esqueceu a {
+    text-decoration: none;
+    color: #88cdf6;
+    font-size: 14px;
+}
+
+.esqueceu a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border: none;
+    background: #88cdf6;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #88cdf6;
+}
+
+.cadastro {
+    margin-top: 25px;
+    text-align: center;
+    color: #555;
+}
+
+.cadastro a {
+    color: #88cdf6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cadastro a:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER */
+
+.footer {
+    margin-top: 80px;
+    background: #c6ebff;
+    border-top: 2px solid #89defd;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 8px;
+}
+
+.footer-logo p {
+    color: #555;
+    font-size: 15px;
+}
+
+.footer-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-menu a {
+    color: #444;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.footer-menu a:hover {
+    color: #ff9d5c;
+}
+
+.footer-redes {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-redes a {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: white;
+    color: #ff9d5c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
+    transition: .3s;
+}
+
+.footer-redes a:hover {
+    background: #ff9d5c;
+    color: white;
+}
+
+.footer-copy {
+    text-align: center;
+    padding: 15px;
+    background: #a8e2ff;
+    color: #666;
+    font-size: 14px;
+}
+
+/* ICONE CELULAR*/
+
+.hamburguer {
+    font-size: 30px;
+    color: #ff9d5c;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* MENU CELULAR*/
+
+.menu-mobile {
+    position: fixed;
+    top: 80px;
+    right: -300px;
+    width: 280px;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, .15);
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.menu-mobile.ativo {
+    right: 0;
+}
+
+.menu-mobile a {
+    text-decoration: none;
+    color: #333;
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-mobile a:hover {
+    background: #dff4ff;
+}
+
+.acoes-mobile {
+    display: none;
+}
+
+@media(max-width:768px) {
+
+    .card {
+        padding: 25px;
+    }
+
+    .mini_nav {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .icone {
+        display: none;
+    }
+
+    .minha_navbar {
+        padding: 15px 20px;
+    }
+
+    .acoes-mobile {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-left: auto;
+    }
+
+    .acoes-mobile a {
+        color: rgb(255, 160, 105);
+        font-size: 24px;
+        text-decoration: none;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 25px 20px;
+        gap: 25px;
+    }
+
+    .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        width: 130px;
+    }
+
+    .footer-logo p {
+        max-width: 280px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .footer-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .footer-menu a {
+        font-size: 15px;
+    }
+
+    .footer-redes {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .footer-redes a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .footer-copy {
+        padding: 12px;
+        font-size: 13px;
+    }
 }
