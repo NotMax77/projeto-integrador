@@ -20,16 +20,16 @@
             <h2>Criar Conta</h2>
  
             <p class="subtitulo">
-                Cadastre-se para encontrar uma babá ou oferecer seus serviços.
+                Cadastre-se.
             </p>
  
-            <form>
+            <form id="cadastroForm">
  
                 <div class="form-grid">
  
                     <div class="campo campo-full">
                         <label>Nome Completo</label>
-                        <input type="text" placeholder="Digite seu nome completo" required>
+                        <input type="text" id="nomeCompleto" placeholder="Digite seu nome completo" required>
                     </div>
  
                     <div class="campo">
@@ -95,6 +95,22 @@
         </div>
  
     </div>
+
+    <script>
+document.getElementById("cadastroForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const nome = document.getElementById("nomeCompleto").value;
+
+    // Salva o nome para a próxima página
+    localStorage.setItem("nomeUsuario", nome);
+
+    // Vai para a criação do perfil
+    window.location.href = "criar-perfil.html";
+
+});
+</script>
  
 </body>
  
