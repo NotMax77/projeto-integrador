@@ -154,7 +154,7 @@ button{
     margin: 150px auto 80px auto;
 }
 
-.quem-somos {
+.card-azul {
     width: 90%;
     margin: 170px auto 100px auto;
     display: flex;
@@ -287,6 +287,41 @@ button{
 .cta button:hover {
     background: #ff8533;
 }
+
+.faq h2{
+    margin-bottom: 25px;
+}
+
+.guia-item{
+    margin-bottom: 15px;
+}
+
+.guia-ajuda{
+    width: 100%;
+    background: #dff4ff;
+    border: none;
+    padding: 18px 25px;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.guia-resposta{
+    display: none;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 10px;
+}
+
+.guia-item.ativo .guia-resposta{
+    display: block;
+}
+
 
 /*FOOTER*/
 
@@ -421,7 +456,7 @@ button{
     }
 
     .imagem {
-        display: none;
+        display: flex;
     }
 
     .mini_nav {
@@ -517,7 +552,7 @@ button{
     }
 
     .imagem {
-        display: none;
+        display: flex;
     }
 
     .sobre{

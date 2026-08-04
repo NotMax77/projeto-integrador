@@ -102,14 +102,21 @@
             <h2>Criar Conta</h2>
 
             <p class="subtitulo">
-                Cadastre-se para encontrar uma babá ou oferecer seus serviços.
+                Cadastre-se.
             </p>
+<<<<<<< HEAD:PI/cadastro.html
 
             <form>
 
+=======
+ 
+            <form id="cadastroForm">
+ 
+>>>>>>> 736145e5d230edc5e7f58915ecc426a225dd918c:PI/cadastro-pais.html
                 <div class="form-grid">
 
                     <div class="campo campo-full">
+<<<<<<< HEAD:PI/cadastro.html
                         <label>Tipo de Cadastro</label>
 
                         <select required>
@@ -120,8 +127,10 @@
                     </div>
 
                     <div class="campo campo-full">
+=======
+>>>>>>> 736145e5d230edc5e7f58915ecc426a225dd918c:PI/cadastro-pais.html
                         <label>Nome Completo</label>
-                        <input type="text" placeholder="Digite seu nome completo" required>
+                        <input type="text" id="nomeCompleto" placeholder="Digite seu nome completo" required>
                     </div>
 
                     <div class="campo">
@@ -188,6 +197,7 @@
 
     </div>
 
+<<<<<<< HEAD:PI/cadastro.html
     <footer class="footer">
 
         <div class="footer-container">
@@ -245,6 +255,24 @@
 
     <script src="js/celular.js"></script>
 
+=======
+    <script>
+document.getElementById("cadastroForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const nome = document.getElementById("nomeCompleto").value;
+
+    // Salva o nome para a próxima página
+    localStorage.setItem("nomeUsuario", nome);
+
+    // Vai para a criação do perfil
+    window.location.href = "criar-perfil.html";
+
+});
+</script>
+ 
+>>>>>>> 736145e5d230edc5e7f58915ecc426a225dd918c:PI/cadastro-pais.html
 </body>
 
 </html>
