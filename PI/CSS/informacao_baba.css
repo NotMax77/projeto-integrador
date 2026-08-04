@@ -1,0 +1,240 @@
+.perfil-baba{
+
+    width:90%;
+    max-width:1200px;
+    margin:150px auto 60px;
+
+}
+
+.voltar{
+
+    text-decoration:none;
+    color:#555;
+    font-size:18px;
+
+}
+
+.topo-perfil{
+
+    display:flex;
+    gap:40px;
+    margin-top:25px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.foto img{
+
+    width:260px;
+    height:260px;
+
+    border-radius:20px;
+
+    object-fit:cover;
+
+}
+
+.informacoes{
+
+    flex:1;
+
+}
+
+.informacoes h1{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+.status{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.verificada{
+
+    color:#28a745;
+
+    font-weight:bold;
+
+}
+
+.informacoes p{
+
+    margin:12px 0;
+
+    color:#555;
+
+    font-size:18px;
+
+}
+
+.botoes{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.btn-chat{
+
+    background:#ff9d5c;
+
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+}
+
+.btn-favorito{
+
+    border:none;
+
+    background:#dff4ff;
+
+    padding:15px 30px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.card{
+
+    background:white;
+
+    margin-top:30px;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.card h2{
+
+    margin-bottom:20px;
+
+}
+
+.card p{
+
+    line-height:1.8;
+
+    color:#555;
+
+}
+
+.duas-colunas{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+}
+
+.card ul{
+
+    line-height:2;
+
+}
+
+.btn-mapa{
+
+    margin-top:20px;
+
+    border:none;
+
+    background:#88cdf6;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.comentario{
+
+    margin-top:20px;
+
+    border-top:1px solid #eee;
+
+    padding-top:20px;
+
+}
+
+@media(max-width:768px){
+
+    .topo-perfil{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .foto img{
+
+        width:180px;
+
+        height:180px;
+
+        margin:auto;
+
+    }
+
+    .duas-colunas{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .botoes{
+
+        flex-direction:column;
+
+    }
+
+    .btn-chat,
+
+    .btn-favorito{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}
