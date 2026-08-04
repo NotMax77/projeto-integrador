@@ -5,15 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Encontre sua Babá</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="CSS/cadastro.css">
 
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="CSS/cadastro.css">
 </head>
 
+<!--ps. o index tbm tá meio bagunçado (pelo menos pra mim)-->
+
 <body>
+
     <!-- NAVBAR -->
     <nav class="nav_inteira">
+
         <div class="minha_navbar">
+
             <!-- LOGO -->
             <div class="logo">
                 <a href="index.html">
@@ -21,8 +28,9 @@
                 </a>
             </div>
 
-            <!-- ICONES MOBILE -->
+            <!-- ÍCONES MOBILE -->
             <div class="acoes-mobile">
+
                 <a href="login.html" title="Entrar como responsável">
                     <i class="fa-solid fa-user"></i>
                 </a>
@@ -34,23 +42,30 @@
                 <div class="hamburguer" onclick="abrirMenu()">
                     <i class="fa-solid fa-bars"></i>
                 </div>
+
             </div>
 
             <div class="menu_direito">
+
                 <!-- MENU -->
                 <ul class="menu">
+
                     <li class="dropdown">
 
                         <a href="#">Cadastro</a>
+
                         <ul class="dropdown-content">
                             <li><a href="cadastro.html">Cadastro cliente</a></li>
                             <li><a href="">Cadastro Babá</a></li>
                         </ul>
+
                     </li>
+
                 </ul>
 
-                <!-- ÍCONE -->
+                <!-- ÍCONES -->
                 <div class="icone">
+
                     <a href="login.html" title="Entrar como responsável">
                         <i class="fa-solid fa-user"></i>
                     </a>
@@ -58,22 +73,29 @@
                     <a href="" title="Entrar como babá">
                         <i class="fa-solid fa-user-nurse"></i>
                     </a>
+
                 </div>
+
             </div>
+
         </div>
 
         <!-- MINI NAVBAR -->
         <div class="mini_nav">
+
             <ul class="menu_mini">
+
                 <li class="dropdown">
 
                     <a href="#">Guia para bebês</a>
+
                     <ul class="dropdown-content">
                         <li><a href="guias.html">0 a 12 meses</a></li>
                         <li><a href="guias.html">1 a 3 Anos</a></li>
                         <li><a href="guias.html">4 a 12 Anos</a></li>
                         <li><a href="guias.html">+ 12 Anos</a></li>
                     </ul>
+
                 </li>
 
                 <li><a href="favoritos.html">Favoritos</a></li>
@@ -84,15 +106,20 @@
                 <li class="dropdown">
 
                     <a href="#">Histórico</a>
+
                     <ul class="dropdown-content">
                         <li><a href="historico_contrato.html">Histórico de contrato</a></li>
-                        <li><a href="dividas_pagamentos.html">Dívidas e pagamentos​</a></li>
+                        <li><a href="dividas_pagamentos.html">Dívidas e pagamentos</a></li>
                     </ul>
+
                 </li>
 
                 <li><a href="sobre_nos.htm">Sobre Nós</a></li>
+
             </ul>
+
         </div>
+
     </nav>
 
     <div class="container">
@@ -104,68 +131,93 @@
             <p class="subtitulo">
                 Cadastre-se.
             </p>
-<<<<<<< HEAD:PI/cadastro.html
 
-            <form>
-
-=======
- 
             <form id="cadastroForm">
- 
->>>>>>> 736145e5d230edc5e7f58915ecc426a225dd918c:PI/cadastro-pais.html
+
                 <div class="form-grid">
 
                     <div class="campo campo-full">
-<<<<<<< HEAD:PI/cadastro.html
-                        <label>Tipo de Cadastro</label>
 
-                        <select required>
-                            <option value="">Selecione</option>
-                            <option>Pai / Responsável</option>
-                            <option>Babá</option>
-                        </select>
-                    </div>
-
-                    <div class="campo campo-full">
-=======
->>>>>>> 736145e5d230edc5e7f58915ecc426a225dd918c:PI/cadastro-pais.html
                         <label>Nome Completo</label>
-                        <input type="text" id="nomeCompleto" placeholder="Digite seu nome completo" required>
+
+                        <input
+                            type="text"
+                            id="nomeCompleto"
+                            placeholder="Digite seu nome completo"
+                            required>
+
                     </div>
 
                     <div class="campo">
+
                         <label>CPF</label>
-                        <input type="text" placeholder="000.000.000-00" required>
+
+                        <input
+                            type="text"
+                            placeholder="000.000.000-00"
+                            required>
+
                     </div>
 
                     <div class="campo">
+
                         <label>Data de Nascimento</label>
-                        <input type="date" required>
+
+                        <input
+                            type="date"
+                            required>
+
                     </div>
 
                     <div class="campo">
+
                         <label>Telefone</label>
-                        <input type="tel" placeholder="(11) 99999-9999" required>
+
+                        <input
+                            type="tel"
+                            placeholder="(11) 99999-9999"
+                            required>
+
                     </div>
 
                     <div class="campo">
+
                         <label>E-mail</label>
-                        <input type="email" placeholder="email@exemplo.com" required>
+
+                        <input
+                            type="email"
+                            placeholder="email@exemplo.com"
+                            required>
+
                     </div>
 
                     <div class="campo">
+
                         <label>Senha</label>
-                        <input type="password" placeholder="********" required>
+
+                        <input
+                            type="password"
+                            placeholder="********"
+                            required>
+
                     </div>
 
                     <div class="campo">
+
                         <label>Confirmar Senha</label>
-                        <input type="password" placeholder="********" required>
+
+                        <input
+                            type="password"
+                            placeholder="********"
+                            required>
+
                     </div>
 
                     <div class="termos">
 
-                        <input type="checkbox" required>
+                        <input
+                            type="checkbox"
+                            required>
 
                         <label>
                             Li e aceito os Termos de Uso e a Política de Privacidade.
@@ -196,9 +248,7 @@
         </div>
 
     </div>
-
-<<<<<<< HEAD:PI/cadastro.html
-    <footer class="footer">
+        <footer class="footer">
 
         <div class="footer-container">
 
@@ -215,6 +265,7 @@
             </div>
 
             <div class="footer-redes">
+
                 <a href="https://facebook.com" target="_blank" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
@@ -230,6 +281,7 @@
                 <a href="https://web.whatsapp.com" target="_blank" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
+
             </div>
 
         </div>
@@ -255,24 +307,22 @@
 
     <script src="js/celular.js"></script>
 
-=======
     <script>
-document.getElementById("cadastroForm").addEventListener("submit", function(e){
+        document.getElementById("cadastroForm").addEventListener("submit", function (e) {
 
-    e.preventDefault();
+            e.preventDefault();
 
-    const nome = document.getElementById("nomeCompleto").value;
+            const nome = document.getElementById("nomeCompleto").value;
 
-    // Salva o nome para a próxima página
-    localStorage.setItem("nomeUsuario", nome);
+            // Salva o nome para a próxima página
+            localStorage.setItem("nomeUsuario", nome);
 
-    // Vai para a criação do perfil
-    window.location.href = "criar-perfil.html";
+            // Redireciona para criação do perfil
+            window.location.href = "criar-perfil.html";
 
-});
-</script>
- 
->>>>>>> 736145e5d230edc5e7f58915ecc426a225dd918c:PI/cadastro-pais.html
+        });
+    </script>
+
 </body>
 
 </html>
