@@ -190,7 +190,8 @@ footer {
     display: flex;
     background: white;
     border-radius: 30px;
-    overflow: hidden; /* esconde o conteúdo que ultrapassa os limites do container */
+    overflow: hidden;
+    /* esconde o conteúdo que ultrapassa os limites do container */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid rgb(192, 246, 255);
 }
@@ -232,7 +233,8 @@ footer {
     display: flex;
     gap: 18px;
     overflow: hidden;
-    scroll-behavior: smooth; /* faz a rolagem acontecer suavemente */
+    scroll-behavior: smooth;
+    /* faz a rolagem acontecer suavemente */
 }
 
 .cards::-webkit-scrollbar {
@@ -245,7 +247,8 @@ footer {
     padding: 18px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
-    flex: 0 0 250px; /* o card não aumenta nem diminui e fica com 250px */
+    flex: 0 0 250px;
+    /* o card não aumenta nem diminui e fica com 250px */
     transition: .3s;
 }
 
@@ -417,7 +420,7 @@ footer {
     background: #dff4ff;
 }
 
-.acoes-mobile {
+.hamburguer {
     display: none;
 }
 
@@ -427,29 +430,19 @@ footer {
         display: none;
     }
 
-    .menu {
-        display: none;
-    }
-
-    .icone {
-        display: none;
-    }
-
     .minha_navbar {
         padding: 15px 20px;
     }
 
-    .acoes-mobile {
+    .menu_direito {
         display: flex;
         align-items: center;
         gap: 18px;
         margin-left: auto;
     }
 
-    .acoes-mobile a {
-        color: rgb(255, 160, 105);
-        font-size: 24px;
-        text-decoration: none;
+    .hamburguer {
+        display: block;
     }
 
     .footer-container {
