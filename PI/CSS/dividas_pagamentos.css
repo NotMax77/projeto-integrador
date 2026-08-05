@@ -179,85 +179,85 @@ footer {
 
 /*PAGAMENTO*/
 
-.pagamentos{
-    width:70%;
-    margin:160px auto 120px auto;
+.pagamentos {
+    width: 70%;
+    margin: 160px auto 120px auto;
 }
 
-.pagamentos h1{
-    text-align:center;
-    margin-bottom:10px;
+.pagamentos h1 {
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-.subtitulo{
-    text-align:center;
-    color:#666;
-    margin-bottom:35px;
+.subtitulo {
+    text-align: center;
+    color: #666;
+    margin-bottom: 35px;
 }
 
-.card-pagamento{
+.card-pagamento {
     margin-top: 40px;
-    display:flex;
-    align-items:center;
-    gap:30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
     background: #dff4ff;
-    padding:25px;
-    border:1px solid #ddd;
-    border-radius:12px;
-    margin-bottom:25px;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin-bottom: 25px;
 }
 
-.foto img{
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    object-fit:cover;
+.foto img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.coluna{
-    flex:1;
+.coluna {
+    flex: 1;
 }
 
-.coluna h4{
-    margin-bottom:12px;
-    color:#444;
+.coluna h4 {
+    margin-bottom: 12px;
+    color: #444;
 }
 
-.coluna p{
-    margin:6px 0;
+.coluna p {
+    margin: 6px 0;
 }
 
-.status{
-    display:inline-block;
-    padding:8px 18px;
-    border-radius:20px;
-    color:white;
-    font-size:14px;
-    margin-bottom:18px;
+.status {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 18px;
 }
 
-.pago{
-    background:#28a745;
+.pago {
+    background: #28a745;
 }
 
-.pendente{
-    background:#ffc107;
-    color:#222;
+.pendente {
+    background: #ffc107;
+    color: #222;
 }
 
-.atrasado{
-    background:#dc3545;
+.atrasado {
+    background: #dc3545;
 }
 
-.coluna button{
-    display:block;
-    margin-top:15px;
-    border:none;
-    background:#ff9d5c;
-    color:white;
-    padding:10px 18px;
-    border-radius:8px;
-    cursor:pointer;
+.coluna button {
+    display: block;
+    margin-top: 15px;
+    border: none;
+    background: #ff9d5c;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 /*FOOTER*/
@@ -450,5 +450,47 @@ footer {
     .footer-copy {
         padding: 12px;
         font-size: 13px;
+    }
+
+    .pagamentos {
+        width: 95%;
+        margin: 120px auto 50px;
+    }
+
+    .card-pagamento {
+        padding: 15px;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .foto img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .coluna {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .coluna h4 {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .coluna p {
+        font-size: 12px;
+        margin: 3px 0;
+    }
+
+    .status {
+        font-size: 11px;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+    }
+
+    .coluna button {
+        padding: 8px 12px;
+        font-size: 12px;
     }
 }

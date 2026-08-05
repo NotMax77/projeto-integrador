@@ -403,4 +403,11 @@ footer {
         padding: 12px;
         font-size: 13px;
     }
+
+    .lista-babas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: auto;
+    }
 }

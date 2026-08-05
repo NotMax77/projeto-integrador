@@ -1,3 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*NAVBAR*/
+
+.nav_inteira {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.minha_navbar {
+    width: 100%;
+    height: 80px;
+    background: #dff4ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+}
+
+.logo img {
+    width: 150px;
+    cursor: pointer;
+}
+
+.menu_direito {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.menu {
+    list-style: none;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu a:hover {
+    color: #0d6efd;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown a {
+    cursor: context-menu;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -12px;
+    background: rgb(179, 244, 255);
+    width: 130px;
+    border-radius: 10px;
+    list-style: none;
+}
+
+.dropdown-content a {
+    cursor: pointer;
+    display: block;
+    padding: 12px;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background: rgba(0, 217, 255, 0.12);
+    padding-left: 22px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.icone {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.icone a {
+    color: rgb(255, 160, 105);
+}
+
+/*MINI NAVBAR*/
+
+.mini_nav {
+    width: 100%;
+    height: 30px;
+    background: rgb(179, 244, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_mini {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    font-size: 18px;
+}
+
+.menu_mini a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu_mini a:hover {
+    color: #0d6efd;
+}
+
+/*INFORMAÇÃO DA BABÁ*/
+
 .perfil-baba{
 
     width:90%;
@@ -20,7 +158,7 @@
     gap:40px;
     margin-top:25px;
 
-    background:#fff;
+    background:#eef9ff;
 
     border-radius:20px;
 
@@ -125,7 +263,7 @@
 
 .card{
 
-    background:white;
+    background:#eef9ff;
 
     margin-top:30px;
 
@@ -195,7 +333,121 @@
 
 }
 
+/* ICONE CELULAR*/
+
+.hamburguer {
+    font-size: 30px;
+    color: #ff9d5c;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* MENU CELULAR*/
+
+.menu-mobile {
+    position: fixed;
+    top: 80px;
+    right: -300px;
+    width: 280px;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, .15);
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.menu-mobile.ativo {
+    right: 0;
+}
+
+.menu-mobile a {
+    text-decoration: none;
+    color: #333;
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-mobile a:hover {
+    background: #dff4ff;
+}
+
+.hamburguer {
+    display: none;
+}
+
 @media(max-width:768px){
+
+    .mini_nav {
+        display: none;
+    }
+
+    .minha_navbar {
+        padding: 15px 20px;
+    }
+
+    .menu_direito {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-left: auto;
+    }
+
+    .hamburguer {
+        display: block;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 25px 20px;
+        gap: 25px;
+    }
+
+    .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        width: 130px;
+    }
+
+    .footer-logo p {
+        max-width: 280px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .footer-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .footer-menu a {
+        font-size: 15px;
+    }
+
+    .footer-redes {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .footer-redes a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .footer-copy {
+        padding: 12px;
+        font-size: 13px;
+    }
 
     .topo-perfil{
 
