@@ -19,15 +19,6 @@ footer {
     margin-top: auto;
 }
 
-h1,
-h2,
-h3,
-h4,
-.menu a,
-button{
-    font-family: "Poppins", sans-serif;
-}
-
 /*NAVBAR*/
 
 .nav_inteira {
@@ -292,14 +283,11 @@ button{
 
 .footer-container {
     width: 90%;
-    max-width: 1200px;
     margin: auto;
     padding: 30px 0;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -321,7 +309,6 @@ button{
 .footer-menu a {
     color: #444;
     text-decoration: none;
-    font-weight: 500;
     transition: .3s;
 }
 
@@ -362,7 +349,7 @@ button{
     font-size: 14px;
 }
 
-/* ICONE CELULAR */
+/* ICONE CELULAR*/
 
 .hamburguer {
     font-size: 30px;
@@ -371,7 +358,7 @@ button{
     margin-left: auto;
 }
 
-/* MENU CELULAR */
+/* MENU CELULAR*/
 
 .menu-mobile {
     position: fixed;
@@ -402,7 +389,7 @@ button{
     background: #dff4ff;
 }
 
-.acoes-mobile {
+.hamburguer {
     display: none;
 }
 
@@ -412,29 +399,19 @@ button{
         display: none;
     }
 
-    .menu {
-        display: none;
-    }
-
-    .icone {
-        display: none;
-    }
-
     .minha_navbar {
         padding: 15px 20px;
     }
 
-    .acoes-mobile {
+    .menu_direito {
         display: flex;
         align-items: center;
         gap: 18px;
         margin-left: auto;
     }
 
-    .acoes-mobile a {
-        color: rgb(255, 160, 105);
-        font-size: 24px;
-        text-decoration: none;
+    .hamburguer {
+        display: block;
     }
 
     .filtros {
