@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="CSS/dashboard.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/ganhos.css">
+
+    <title>Clientes</title>
 </head>
 
 <body>
@@ -48,75 +49,81 @@
         </div>
     </nav>
 
-    <main class="dashboard">
+    <section class="ganhos">
+        <h1>Ganhos e Pagamentos</h1>
 
-        <section class="boas-vindas">
-            <div class="perfil">
-                <img src="img/baba.jpg" alt="Foto da babá">
+        <p class="subtitulo">
+            Acompanhe seus recebimentos.
+        </p>
 
-                <div>
-                    <h2>Olá, Ana! 👋</h2>
-                    <p>Bem-vinda de volta.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="resumo">
+        <div class="resumo">
 
             <div class="card-resumo">
-
-                <i class="fa-solid fa-briefcase"></i>
-                <h3>18</h3>
-                <p>Trabalhos</p>
+                <h3>Ganhos do mês</h3>
+                <span>R$ 2.850,00</span>
             </div>
 
             <div class="card-resumo">
-
-                <i class="fa-solid fa-star"></i>
-                <h3>4.9</h3>
-                <p>Avaliação</p>
+                <h3>Total recebido</h3>
+                <span>R$ 14.320,00</span>
             </div>
 
             <div class="card-resumo">
+                <h3>Serviços realizados</h3>
+                <span>18</span>
+            </div>
+        </div>
 
-                <i class="fa-solid fa-wallet"></i>
-                <h3>R$ 2.350</h3>
-                <p>Ganhos</p>
+        <div class="card-pagamento">
+
+            <div class="cliente">
+                <img src="img/cliente1.jpg" alt="">
+                <h3>Ana Oliveira</h3>
             </div>
 
-            <div class="card-resumo">
-
-                <i class="fa-solid fa-clock"></i>
-                <h3>Hoje</h3>
-                <p>Disponível</p>
-            </div>
-        </section>
-
-        <section class="disponibilidade">
-            <h3>Disponibilidade</h3>
-
-            <div class="horarios">
-                <span class="ativo">Manhã</span>
-                <span class="ativo">Tarde</span>
-                <span>Noite</span>
+            <div class="valor">
+                <strong>R$ 180,00</strong>
             </div>
 
-            <button>Alterar disponibilidade</button>
-        </section>
+            <div class="status recebido">
+                Recebido
+            </div>
+        </div>
 
-        <section class="atalhos">
-            <a href="historico_trabalhos.html">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                Histórico de Trabalhos
-            </a>
+        <div class="card-pagamento">
 
-            <a href="ganhos.html">
-                <i class="fa-solid fa-money-bill-wave"></i>
-                Ganhos e Pagamentos
-            </a>
-        </section>
-    </main>
+            <div class="cliente">
+                <img src="img/cliente2.jpg" alt="">
+                <h3>Carlos Mendes</h3>
+            </div>
 
+            <div class="valor">
+                <strong>R$ 250,00</strong>
+            </div>
+
+            <div class="status recebido">
+                Recebido
+            </div>
+        </div>
+
+        <div class="card-pagamento">
+
+            <div class="cliente">
+                <img src="img/cliente3.jpg" alt="">
+                <h3>Fernanda Lima</h3>
+            </div>
+
+            <div class="valor">
+                <strong>R$ 320,00</strong>
+            </div>
+
+            <div class="status pendente">
+                Pendente
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
 
         <div class="footer-container">

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/conversa.css">
+    <title>Conversa</title>
+</head>
+
+<body>
+
+    <div class="chat">
+
+        <!-- Lado esquerdo -->
+        <div class="perfil">
+            <img src="img/baba.jpg" alt="Babá">
+
+            <h2>Ana Silva</h2>
+
+            <span class="online">
+                <i class="fa-solid fa-circle"></i>
+                Online
+            </span>
+
+            <p>
+                São Paulo • 2 km de você
+            </p>
+
+            <button class="btn-proposta" onclick="abrirFormulario()">
+                Criar proposta
+            </button>
+        </div>
+
+        <!-- Conversa -->
+        <div class="conversa">
+
+            <div class="topo-chat">
+                <h3>
+                    Conversa com Ana Silva
+                </h3>
+            </div>
+
+            <div class="mensagens" id="mensagens">
+
+                <div class="msg cliente">
+                    Olá Ana! Gostaria de contratar uma babá.
+                </div>
+
+                <div class="msg baba">
+                    Claro! Quantos anos tem a criança?
+                </div>
+
+                <div class="msg cliente">
+                    Ela tem 2 anos.
+                </div>
+            </div>
+
+            <div class="enviar">
+
+                <input type="text" id="texto" placeholder="Digite sua mensagem...">
+
+                <button onclick="enviarMensagem()">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div class="modal" id="modal">
+
+        <div class="formulario">
+
+            <h2>
+                Proposta de Serviço
+            </h2>
+
+            <label>Data inicial</label>
+            <input type="date">
+
+            <label>Data final</label>
+            <input type="date">
+
+            <label>Horário</label>
+            <input type="text" placeholder="08:00 às 17:00">
+
+            <label>Local</label>
+            <input type="text">
+
+            <label>Valor</label>
+            <input type="number" placeholder="R$">
+
+            <label>Observações</label>
+
+            <textarea rows="4"></textarea>
+
+            <div class="botoes">
+
+                <button class="cancelar" onclick="fecharFormulario()">
+                    Cancelar
+                </button>
+
+                <button class="enviar-proposta" onclick="enviarProposta()">
+                    Enviar proposta
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/conversa.js"></script>
+</body>
+
+</html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/historico_contrato.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
@@ -48,74 +48,60 @@
         </div>
     </nav>
 
-    <main class="dashboard">
+    <section class="historico">
+        <h1>Histórico de Trabalho</h1>
 
-        <section class="boas-vindas">
-            <div class="perfil">
-                <img src="img/baba.jpg" alt="Foto da babá">
+        <p class="subtitulo">
+            Consulte todos os trabalhos realizados com os seus clientes.
+        </p>
 
-                <div>
-                    <h2>Olá, Ana! 👋</h2>
-                    <p>Bem-vinda de volta.</p>
-                </div>
-            </div>
+        <!-- PESQUISA -->
+        <section class="container-pesquisa">
+            <form class="form_pesquisa">
+                <input type="text" name="busca" placeholder="Pesquisar Babás..." required>
+                <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
         </section>
 
-        <section class="resumo">
+        <div class="filtros">
+            <button class="ativo">Todos</button>
+            <button>Em andamento</button>
+            <button>Finalizados</button>
+            <button>Cancelados</button>
+        </div>
 
-            <div class="card-resumo">
+        <!-- CARD -->
+        <div class="card-contrato">
 
-                <i class="fa-solid fa-briefcase"></i>
-                <h3>18</h3>
-                <p>Trabalhos</p>
+            <div class="foto">
+                <img src="img/cliente1.jpg" alt="">
             </div>
 
-            <div class="card-resumo">
-
-                <i class="fa-solid fa-star"></i>
-                <h3>4.9</h3>
-                <p>Avaliação</p>
+            <div class="coluna">
+                <h4>Cliente</h4>
+                <p>Maria Oliveira</p>
             </div>
 
-            <div class="card-resumo">
-
-                <i class="fa-solid fa-wallet"></i>
-                <h3>R$ 2.350</h3>
-                <p>Ganhos</p>
+            <div class="coluna">
+                <h4>Período</h4>
+                <p>10/06/2026</p>
+                <p>15/06/2026</p>
             </div>
 
-            <div class="card-resumo">
+            <div class="coluna">
+                <h4>Status</h4>
 
-                <i class="fa-solid fa-clock"></i>
-                <h3>Hoje</h3>
-                <p>Disponível</p>
-            </div>
-        </section>
+                <span class="status finalizado">
+                    Finalizado
+                </span>
 
-        <section class="disponibilidade">
-            <h3>Disponibilidade</h3>
-
-            <div class="horarios">
-                <span class="ativo">Manhã</span>
-                <span class="ativo">Tarde</span>
-                <span>Noite</span>
+                <button>Ver detalhes</button>
             </div>
 
-            <button>Alterar disponibilidade</button>
-        </section>
-
-        <section class="atalhos">
-            <a href="historico_trabalhos.html">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                Histórico de Trabalhos
-            </a>
-
-            <a href="ganhos.html">
-                <i class="fa-solid fa-money-bill-wave"></i>
-                Ganhos e Pagamentos
-            </a>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer class="footer">
 
