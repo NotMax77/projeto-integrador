@@ -528,3 +528,15 @@ textarea:focus {
     gap: 8px;
     font-size: 14px;
 }
+
+.campo-erro {
+    border: 2px solid red !important;
+    background-color: #fff5f5;
+}
+
+.mensagem-campo {
+    display: block;
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}

@@ -1,6 +1,9 @@
 <?php
 
 include 'include/conexao.php';
+include 'include/navbar_publica.php';
+
+
 
 $erro = '';
 $sucesso = '';
@@ -16,26 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = $_POST['senha'];
     $confirmar_senha = $_POST['confirmar_senha'];
     $telefone = trim($_POST['telefone']);
-
-    // ENDEREÇO
-    $cep = trim($_POST['cep']);
-    $estado = trim($_POST['estado']);
-    $cidade = trim($_POST['cidade']);
-    $bairro = trim($_POST['bairro']);
-    $rua = trim($_POST['rua']);
-    $numero = trim($_POST['numero']);
-    $complemento = trim($_POST['complemento']);
-
-    // EXPERIÊNCIA
     $experiencia = trim($_POST['experiencia']);
 
-    // DISPONIBILIDADE
     $disponibilidades = $_POST['disponibilidade'] ?? [];
-
-    // PREFERÊNCIAS
     $preferencias = $_POST['preferencias'] ?? [];
 
-    // FOTO
     $foto = $_FILES['foto'] ?? null;
 
 
@@ -57,11 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $erro = 'Selecione pelo menos uma preferência.';
     } else {
 
-        // Verifica se CPF ou e-mail já existem
+        // Verifica CPF ou e-mail
 
         $stmt = $conexao->prepare(
-            "SELECT id_baba 
-             FROM BABA 
+            "SELECT id_baba
+             FROM BABA
              WHERE cpf = ? OR email = ?"
         );
 
@@ -94,7 +82,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     pathinfo($foto['name'], PATHINFO_EXTENSION)
                 );
 
-                $extensoesPermitidas = ['jpg', 'jpeg', 'png', 'webp'];
+                $extensoesPermitidas = [
+                    'jpg',
+                    'jpeg',
+                    'png',
+                    'webp'
+                ];
 
                 if (!in_array($extensao, $extensoesPermitidas)) {
                     throw new Exception('Formato de imagem inválido.');
@@ -104,35 +97,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $caminhoFoto = $pasta . $nomeFoto;
 
-                if (!move_uploaded_file($foto['tmp_name'], $caminhoFoto)) {
+                if (!move_uploaded_file(
+                    $foto['tmp_name'],
+                    $caminhoFoto
+                )) {
+
                     throw new Exception('Erro ao salvar a foto.');
                 }
-
-
-                // =========================
-                // ENDEREÇO
-                // =========================
-
-                $stmtEndereco = $conexao->prepare(
-                    "INSERT INTO ENDERECO
-                    (cep, estado, cidade, bairro, rua, numero, complemento)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)"
-                );
-
-                $stmtEndereco->bind_param(
-                    "sssssss",
-                    $cep,
-                    $estado,
-                    $cidade,
-                    $bairro,
-                    $rua,
-                    $numero,
-                    $complemento
-                );
-
-                $stmtEndereco->execute();
-
-                $id_endereco = $conexao->insert_id;
 
 
                 // =========================
@@ -156,14 +127,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         senha,
                         telefone,
                         foto,
-                        experiencia,
-                        id_endereco
+                        experiencia
                     )
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                 );
 
                 $stmtBaba->bind_param(
-                    "ssssssssssi",
+                    "ssssssssss",
                     $nome,
                     $sobrenome,
                     $cpf,
@@ -173,8 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $senhaHash,
                     $telefone,
                     $caminhoFoto,
-                    $experiencia,
-                    $id_endereco
+                    $experiencia
                 );
 
                 $stmtBaba->execute();
@@ -246,108 +215,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Cadastro de Babá</title>
 
-    <link rel="stylesheet" href="CSS/cadastro_babas.css">
+    <link rel="stylesheet"
+        href="css/navbar.css">
+
+    <link rel="stylesheet" href="CSS/footer.css">
+
+    <link rel="stylesheet"
+        href="css/cadastro_babas.css">
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
+
 <body>
-
-
-    <!-- NAVBAR -->
-
-    <nav class="nav_inteira">
-
-        <div class="minha_navbar">
-
-            <div class="logo">
-
-                <a href="index.html">
-
-                    <img src="./img/teste.png" alt="Logo">
-
-                </a>
-
-            </div>
-
-            <div class="menu_direito">
-
-                <div class="icone">
-
-                    <a href="login.html" title="Entrar como responsável">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-
-                    <a href="login-baba.php" title="Entrar como babá">
-                        <i class="fa-solid fa-user-nurse"></i>
-                    </a>
-
-                </div>
-
-                <div class="hamburguer" onclick="abrirMenu()">
-
-                    <i class="fa-solid fa-bars"></i>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="mini_nav">
-
-            <ul class="menu_mini">
-
-                <li>
-                    <a href="guias.html">Guia para bebês</a>
-                </li>
-
-                <li>
-                    <a href="favoritos.html">Favoritos</a>
-                </li>
-
-                <li>
-                    <a href="babas.html">Babás</a>
-                </li>
-
-                <li>
-                    <a href="ajuda.html">Ajuda</a>
-                </li>
-
-                <li>
-                    <a href="sua_localizacao.html">Sua localização</a>
-                </li>
-
-                <li>
-                    <a href="historico_contrato.html">Histórico</a>
-                </li>
-
-                <li>
-                    <a href="sobre_nos.htm">Sobre Nós</a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </nav>
-
-
-    <!-- CADASTRO -->
 
     <div class="container">
 
@@ -387,6 +283,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h3>Dados pessoais</h3>
 
                 <div class="form-grid">
+
 
                     <div class="campo">
 
@@ -535,103 +432,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
 
-                <!-- ENDEREÇO -->
-
-                <h3>Endereço</h3>
-
-                <div class="form-grid">
-
-                    <div class="campo">
-
-                        <label>CEP</label>
-
-                        <input
-                            type="text"
-                            name="cep"
-                            placeholder="00000-000"
-                            required>
-
-                    </div>
-
-
-                    <div class="campo">
-
-                        <label>Estado</label>
-
-                        <input
-                            type="text"
-                            name="estado"
-                            placeholder="São Paulo"
-                            required>
-
-                    </div>
-
-
-                    <div class="campo">
-
-                        <label>Cidade</label>
-
-                        <input
-                            type="text"
-                            name="cidade"
-                            placeholder="Sua cidade"
-                            required>
-
-                    </div>
-
-
-                    <div class="campo">
-
-                        <label>Bairro</label>
-
-                        <input
-                            type="text"
-                            name="bairro"
-                            placeholder="Seu bairro"
-                            required>
-
-                    </div>
-
-
-                    <div class="campo campo-full">
-
-                        <label>Rua</label>
-
-                        <input
-                            type="text"
-                            name="rua"
-                            placeholder="Nome da rua"
-                            required>
-
-                    </div>
-
-
-                    <div class="campo">
-
-                        <label>Número</label>
-
-                        <input
-                            type="text"
-                            name="numero"
-                            placeholder="Número">
-
-                    </div>
-
-
-                    <div class="campo">
-
-                        <label>Complemento</label>
-
-                        <input
-                            type="text"
-                            name="complemento"
-                            placeholder="Apartamento, bloco...">
-
-                    </div>
-
-                </div>
-
-
                 <!-- EXPERIÊNCIA -->
 
                 <h3>Experiência</h3>
@@ -658,7 +458,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     Selecione os períodos em que você trabalha:
                 </p>
 
+
                 <div class="opcoes">
+
 
                     <label>
 
@@ -695,6 +497,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     </label>
 
+
                 </div>
 
 
@@ -703,11 +506,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h3>Preferências</h3>
 
                 <p>
-                    Selecione as opções que correspondem aos serviços que você oferece:
+                    Selecione as opções que correspondem
+                    aos serviços que você oferece:
                 </p>
 
 
                 <div class="opcoes">
+
 
                     <?php
 
@@ -717,9 +522,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                      ORDER BY descricao"
                     );
 
-                    while ($preferencia = $consultaPreferencias->fetch_assoc()):
+
+                    while (
+                        $preferencia =
+                        $consultaPreferencias->fetch_assoc()
+                    ):
 
                     ?>
+
 
                         <label>
 
@@ -728,11 +538,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 name="preferencias[]"
                                 value="<?= $preferencia['id_preferencia'] ?>">
 
-                            <?= htmlspecialchars($preferencia['descricao']) ?>
+                            <?= htmlspecialchars(
+                                $preferencia['descricao']
+                            ) ?>
 
                         </label>
 
+
                     <?php endwhile; ?>
+
 
                 </div>
 
@@ -761,6 +575,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 </button>
 
+
             </form>
 
 
@@ -776,13 +591,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             </div>
 
+
         </div>
 
     </div>
 
 
-    <script src="js/index.js"></script>
+    <script src="js/celular.js"></script>
+    <script src="js/cadastro_babas.js"></script>
 
 </body>
 
 </html>
+
+<?php include 'include/footer.php'; ?>
