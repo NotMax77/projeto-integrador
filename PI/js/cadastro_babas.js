@@ -1,279 +1,466 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const form = document.querySelector("form");
+    const form = document.getElementById("formCadastroBaba");
 
-    if (!form) {
-        return;
-    }
+    const cpf = document.getElementById("cpf");
+    const telefone = document.getElementById("telefone");
+    const cep = document.getElementById("cep");
 
-
-    // ==============================
-    // CAMPOS
-    // ==============================
-
-    const cpf = form.querySelector('input[name="cpf"]');
-
-    const telefone = form.querySelector('input[name="telefone"]');
-
-    const senha = form.querySelector('input[name="senha"]');
-
-    const confirmarSenha =
-        form.querySelector('input[name="confirmar_senha"]');
+    const estado = document.getElementById("estado");
+    const cidade = document.getElementById("cidade");
+    const bairro = document.getElementById("bairro");
+    const rua = document.getElementById("rua");
 
     const dataNascimento =
-        form.querySelector('input[name="data_nascimento"]');
+        document.getElementById("data_nascimento");
 
-    const foto = form.querySelector('input[name="foto"]');
+    const senha =
+        document.getElementById("senha");
 
+    const confirmarSenha =
+        document.getElementById("confirmar_senha");
 
-    // ==============================
-    // CPF
-    // ==============================
-
-    if (cpf) {
-
-        cpf.addEventListener("input", function () {
-
-            let valor = cpf.value.replace(/\D/g, "");
-
-            valor = valor.substring(0, 11);
-
-            if (valor.length > 9) {
-
-                valor =
-                    valor.replace(
-                        /(\d{3})(\d{3})(\d{3})(\d{1,2})/,
-                        "$1.$2.$3-$4"
-                    );
-
-            } else if (valor.length > 6) {
-
-                valor =
-                    valor.replace(
-                        /(\d{3})(\d{3})(\d{1,3})/,
-                        "$1.$2.$3"
-                    );
-
-            } else if (valor.length > 3) {
-
-                valor =
-                    valor.replace(
-                        /(\d{3})(\d{1,3})/,
-                        "$1.$2"
-                    );
-            }
-
-            cpf.value = valor;
-
-            limparErro(cpf);
-
-        });
-
-    }
+    const foto =
+        document.getElementById("foto");
 
 
-    // ==============================
-    // TELEFONE
-    // ==============================
+    /* ========================================
+       MÁSCARA CPF
+    ======================================== */
 
-    if (telefone) {
+    cpf.addEventListener("input", function () {
 
-        telefone.addEventListener("input", function () {
+        let valor = cpf.value.replace(/\D/g, "");
 
-            let valor =
-                telefone.value.replace(/\D/g, "");
+        valor = valor.substring(0, 11);
 
-            valor = valor.substring(0, 11);
+        if (valor.length > 9) {
 
-            if (valor.length > 10) {
+            valor =
+                valor.replace(
+                    /^(\d{3})(\d{3})(\d{3})(\d{0,2})$/,
+                    "$1.$2.$3-$4"
+                );
 
-                valor =
-                    valor.replace(
-                        /(\d{2})(\d{5})(\d{1,4})/,
-                        "($1) $2-$3"
-                    );
+        } else if (valor.length > 6) {
 
-            } else if (valor.length > 6) {
+            valor =
+                valor.replace(
+                    /^(\d{3})(\d{3})(\d{0,3})$/,
+                    "$1.$2.$3"
+                );
 
-                valor =
-                    valor.replace(
-                        /(\d{2})(\d{4})(\d{1,4})/,
-                        "($1) $2-$3"
-                    );
+        } else if (valor.length > 3) {
 
-            } else if (valor.length > 2) {
+            valor =
+                valor.replace(
+                    /^(\d{3})(\d{0,3})$/,
+                    "$1.$2"
+                );
 
-                valor =
-                    valor.replace(
-                        /(\d{2})(\d{1,5})/,
-                        "($1) $2"
-                    );
-
-            }
-
-            telefone.value = valor;
-
-            limparErro(telefone);
-
-        });
-
-    }
-
-
-    // ==============================
-    // SENHAS
-    // ==============================
-
-    if (senha) {
-
-        senha.addEventListener("input", function () {
-
-            limparErro(senha);
-
-            if (confirmarSenha && confirmarSenha.value !== "") {
-
-                verificarSenhas();
-
-            }
-
-        });
-
-    }
-
-
-    if (confirmarSenha) {
-
-        confirmarSenha.addEventListener("input", function () {
-
-            verificarSenhas();
-
-        });
-
-    }
-
-
-    function verificarSenhas() {
-
-        if (!senha || !confirmarSenha) {
-            return true;
         }
 
-        if (confirmarSenha.value === "") {
-            return true;
+        cpf.value = valor;
+
+    });
+
+
+    /* ========================================
+       MÁSCARA TELEFONE
+    ======================================== */
+
+    telefone.addEventListener("input", function () {
+
+        let valor =
+            telefone.value.replace(/\D/g, "");
+
+        valor = valor.substring(0, 11);
+
+        if (valor.length > 10) {
+
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d{5})(\d{0,4})$/,
+                    "($1) $2-$3"
+                );
+
+        } else if (valor.length > 6) {
+
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d{4})(\d{0,4})$/,
+                    "($1) $2-$3"
+                );
+
+        } else if (valor.length > 2) {
+
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d{0,5})$/,
+                    "($1) $2"
+                );
+
+        } else if (valor.length > 0) {
+
+            valor =
+                valor.replace(
+                    /^(\d{0,2})$/,
+                    "($1"
+                );
+
         }
 
-        if (senha.value !== confirmarSenha.value) {
+        telefone.value = valor;
+
+    });
+
+
+    /* ========================================
+       MÁSCARA CEP
+    ======================================== */
+
+    cep.addEventListener("input", function () {
+
+        let valor =
+            cep.value.replace(/\D/g, "");
+
+        valor = valor.substring(0, 8);
+
+        if (valor.length > 5) {
+
+            valor =
+                valor.replace(
+                    /^(\d{5})(\d{0,3})$/,
+                    "$1-$2"
+                );
+
+        }
+
+        cep.value = valor;
+
+
+        // Quando completar o CEP,
+        // consulta o ViaCEP.
+
+        if (valor.replace(/\D/g, "").length === 8) {
+
+            buscarCEP();
+
+        }
+
+    });
+
+
+    /* ========================================
+       BUSCAR CEP
+    ======================================== */
+
+    function buscarCEP() {
+
+        const numeroCEP =
+            cep.value.replace(/\D/g, "");
+
+
+        if (numeroCEP.length !== 8) {
+
+            return;
+
+        }
+
+
+        // Limpa os campos antes da consulta
+
+        cidade.value = "";
+        bairro.value = "";
+        rua.value = "";
+
+
+        fetch(
+            "https://viacep.com.br/ws/" +
+            numeroCEP +
+            "/json/"
+        )
+
+        .then(function (resposta) {
+
+            if (!resposta.ok) {
+
+                throw new Error(
+                    "Erro ao consultar o CEP."
+                );
+
+            }
+
+            return resposta.json();
+
+        })
+
+        .then(function (dados) {
+
+            if (dados.erro) {
+
+                mostrarErro(
+                    cep,
+                    "CEP não encontrado."
+                );
+
+                return;
+
+            }
+
+
+            removerErro(cep);
+
+
+            // Rua
+
+            rua.value =
+                dados.logradouro || "";
+
+
+            // Bairro
+
+            bairro.value =
+                dados.bairro || "";
+
+
+            // Cidade
+
+            cidade.value =
+                dados.localidade || "";
+
+
+            // Estado
+
+            estado.value =
+                dados.uf || "";
+
+
+            // Caso o estado retornado
+            // não esteja no select
+
+            if (
+                estado.value !== dados.uf
+            ) {
+
+                estado.value = "";
+
+            }
+
+        })
+
+        .catch(function () {
 
             mostrarErro(
-                confirmarSenha,
-                "As senhas não são iguais."
+                cep,
+                "Não foi possível consultar o CEP."
             );
-
-            return false;
-
-        }
-
-        limparErro(confirmarSenha);
-
-        return true;
-    }
-
-
-    // ==============================
-    // DATA DE NASCIMENTO
-    // ==============================
-
-    if (dataNascimento) {
-
-        dataNascimento.addEventListener("change", function () {
-
-            validarIdade(dataNascimento);
 
         });
 
     }
 
 
-    function validarIdade(campo) {
+    /* ========================================
+       VALIDAR CPF
+    ======================================== */
 
-        if (!campo.value) {
+    function validarCPF(valor) {
+
+        const numero =
+            valor.replace(/\D/g, "");
+
+
+        if (numero.length !== 11) {
+
             return false;
+
         }
 
-        const nascimento =
-            new Date(campo.value + "T00:00:00");
 
-        const hoje = new Date();
+        // Impede números repetidos
+
+        if (/^(\d)\1{10}$/.test(numero)) {
+
+            return false;
+
+        }
+
+
+        let soma = 0;
+
+
+        // Primeiro dígito
+
+        for (let i = 0; i < 9; i++) {
+
+            soma +=
+                Number(numero[i]) *
+                (10 - i);
+
+        }
+
+
+        let resto =
+            soma % 11;
+
+
+        let primeiroDigito =
+            resto < 2
+                ? 0
+                : 11 - resto;
+
+
+        if (
+            primeiroDigito !==
+            Number(numero[9])
+        ) {
+
+            return false;
+
+        }
+
+
+        // Segundo dígito
+
+        soma = 0;
+
+
+        for (let i = 0; i < 10; i++) {
+
+            soma +=
+                Number(numero[i]) *
+                (11 - i);
+
+        }
+
+
+        resto =
+            soma % 11;
+
+
+        let segundoDigito =
+            resto < 2
+                ? 0
+                : 11 - resto;
+
+
+        if (
+            segundoDigito !==
+            Number(numero[10])
+        ) {
+
+            return false;
+
+        }
+
+
+        return true;
+
+    }
+
+
+    /* ========================================
+       VALIDAR TELEFONE
+    ======================================== */
+
+    function validarTelefone(valor) {
+
+        const numero =
+            valor.replace(/\D/g, "");
+
+
+        // Aceita telefone fixo
+        // com 10 números
+
+        if (numero.length === 10) {
+
+            return true;
+
+        }
+
+
+        // Aceita celular
+        // com 11 números
+
+        if (numero.length === 11) {
+
+            return true;
+
+        }
+
+
+        return false;
+
+    }
+
+
+    /* ========================================
+       VALIDAR IDADE
+    ======================================== */
+
+    function validarIdade(valor) {
+
+        if (!valor) {
+
+            return false;
+
+        }
+
+
+        const nascimento =
+            new Date(valor);
+
+
+        const hoje =
+            new Date();
+
 
         let idade =
             hoje.getFullYear() -
             nascimento.getFullYear();
 
+
         const mes =
             hoje.getMonth() -
             nascimento.getMonth();
 
+
         if (
             mes < 0 ||
-            (mes === 0 &&
-                hoje.getDate() < nascimento.getDate())
+            (
+                mes === 0 &&
+                hoje.getDate() <
+                nascimento.getDate()
+            )
         ) {
 
             idade--;
 
         }
 
-        // Idade mínima
-        const idadeMinima = 18;
 
-        if (idade < idadeMinima) {
-
-            mostrarErro(
-                campo,
-                "Você precisa ter pelo menos " +
-                idadeMinima +
-                " anos."
-            );
-
-            return false;
-
-        }
-
-        limparErro(campo);
-
-        return true;
-    }
-
-
-    // ==============================
-    // FOTO
-    // ==============================
-
-    if (foto) {
-
-        foto.addEventListener("change", function () {
-
-            validarFoto();
-
-        });
+        return idade >= 18;
 
     }
 
+
+    /* ========================================
+       VALIDAR FOTO
+    ======================================== */
 
     function validarFoto() {
 
-        if (!foto || foto.files.length === 0) {
-
-            mostrarErro(
-                foto,
-                "Selecione uma foto de perfil."
-            );
+        if (!foto.files.length) {
 
             return false;
 
         }
 
-        const arquivo = foto.files[0];
+
+        const arquivo =
+            foto.files[0];
+
 
         const extensoesPermitidas = [
             "image/jpeg",
@@ -281,360 +468,379 @@ document.addEventListener("DOMContentLoaded", function () {
             "image/webp"
         ];
 
+
         if (
             !extensoesPermitidas.includes(
                 arquivo.type
             )
         ) {
 
-            mostrarErro(
-                foto,
-                "A foto deve estar em JPG, JPEG, PNG ou WEBP."
-            );
-
             return false;
 
         }
 
-        // Limite de 5 MB
-        const tamanhoMaximo =
-            5 * 1024 * 1024;
 
-        if (arquivo.size > tamanhoMaximo) {
+        // 5 MB
 
-            mostrarErro(
-                foto,
-                "A foto deve ter no máximo 5 MB."
-            );
+        if (
+            arquivo.size >
+            5 * 1024 * 1024
+        ) {
 
             return false;
 
-        }
-
-        limparErro(foto);
-
-        return true;
-    }
-
-
-    // ==============================
-    // CPF VÁLIDO
-    // ==============================
-
-    function validarCPF(valor) {
-
-        const cpfNumeros = valor.replace(/\D/g, "");
-
-        if (cpfNumeros.length !== 11) {
-            return false;
-        }
-
-        // Não aceita CPF com todos os números iguais
-        if (/^(\d)\1{10}$/.test(cpfNumeros)) {
-            return false;
-        }
-
-        // Primeiro dígito
-        let soma = 0;
-
-        for (let i = 0; i < 9; i++) {
-            soma += Number(cpfNumeros[i]) * (10 - i);
-        }
-
-        let resto = soma % 11;
-
-        let primeiroDigito;
-
-        if (resto < 2) {
-            primeiroDigito = 0;
-        } else {
-            primeiroDigito = 11 - resto;
-        }
-
-        if (primeiroDigito !== Number(cpfNumeros[9])) {
-            return false;
-        }
-
-
-        // Segundo dígito
-        soma = 0;
-
-        for (let i = 0; i < 10; i++) {
-            soma += Number(cpfNumeros[i]) * (11 - i);
-        }
-
-        resto = soma % 11;
-
-        let segundoDigito;
-
-        if (resto < 2) {
-            segundoDigito = 0;
-        } else {
-            segundoDigito = 11 - resto;
-        }
-
-        if (segundoDigito !== Number(cpfNumeros[10])) {
-            return false;
         }
 
 
         return true;
+
     }
 
 
-    // ==============================
-    // TELEFONE VÁLIDO
-    // ==============================
+    /* ========================================
+       MOSTRAR ERRO
+    ======================================== */
 
-    function validarTelefone(valor) {
+    function mostrarErro(
+        elemento,
+        mensagem
+    ) {
 
-        const numeros =
-            valor.replace(/\D/g, "");
-
-        // Telefone celular com DDD
-        if (numeros.length !== 11) {
-            return false;
-        }
-
-        // Celular começa com 9
-        if (numeros.charAt(2) !== "9") {
-            return false;
-        }
-
-        return true;
-    }
+        elemento.classList.add(
+            "campo-erro"
+        );
 
 
-    // ==============================
-    // CAMPOS OBRIGATÓRIOS
-    // ==============================
-
-    function validarObrigatorios() {
-
-        let valido = true;
-
-        const obrigatorios =
-            form.querySelectorAll("[required]");
-
-        obrigatorios.forEach(function (campo) {
-
-            // Checkbox
-            if (campo.type === "checkbox") {
-
-                if (!campo.checked) {
-
-                    mostrarErro(
-                        campo,
-                        "Este campo é obrigatório."
-                    );
-
-                    valido = false;
-
-                }
-
-                return;
-            }
-
-
-            // Arquivo
-            if (campo.type === "file") {
-
-                if (campo.files.length === 0) {
-
-                    mostrarErro(
-                        campo,
-                        "Este campo é obrigatório."
-                    );
-
-                    valido = false;
-
-                }
-
-                return;
-            }
-
-
-            // Campos normais
-            if (campo.value.trim() === "") {
-
-                mostrarErro(
-                    campo,
-                    "Este campo é obrigatório."
+        let mensagemExistente =
+            elemento.parentElement
+                .querySelector(
+                    ".mensagem-campo"
                 );
 
-                valido = false;
 
-            }
+        if (!mensagemExistente) {
 
-        });
+            mensagemExistente =
+                document.createElement(
+                    "span"
+                );
 
-        return valido;
-    }
-
-
-    // ==============================
-    // MOSTRAR ERRO
-    // ==============================
-
-    function mostrarErro(campo, mensagem) {
-
-        if (!campo) {
-            return;
-        }
-
-        campo.classList.add("campo-erro");
-
-
-        let mensagemErro =
-            campo.parentElement.querySelector(
-                ".mensagem-campo"
-            );
-
-
-        if (!mensagemErro) {
-
-            mensagemErro =
-                document.createElement("small");
-
-            mensagemErro.className =
+            mensagemExistente.className =
                 "mensagem-campo";
 
-            campo.parentElement.appendChild(
-                mensagemErro
-            );
+
+            elemento.parentElement
+                .appendChild(
+                    mensagemExistente
+                );
 
         }
 
 
-        mensagemErro.textContent = mensagem;
+        mensagemExistente.textContent =
+            mensagem;
 
     }
 
 
-    // ==============================
-    // LIMPAR ERRO
-    // ==============================
+    /* ========================================
+       REMOVER ERRO
+    ======================================== */
 
-    function limparErro(campo) {
+    function removerErro(elemento) {
 
-        if (!campo) {
-            return;
-        }
+        elemento.classList.remove(
+            "campo-erro"
+        );
 
-        campo.classList.remove("campo-erro");
 
-        const mensagemErro =
-            campo.parentElement.querySelector(
-                ".mensagem-campo"
-            );
+        const mensagem =
+            elemento.parentElement
+                .querySelector(
+                    ".mensagem-campo"
+                );
 
-        if (mensagemErro) {
 
-            mensagemErro.remove();
+        if (mensagem) {
+
+            mensagem.remove();
 
         }
 
     }
 
 
-    // ==============================
-    // ENVIO DO FORMULÁRIO
-    // ==============================
+    /* ========================================
+       LIMPAR ERRO QUANDO DIGITAR
+    ======================================== */
 
-    form.addEventListener("submit", function (evento) {
+    cpf.addEventListener("input", function () {
 
-        let valido = true;
-
-
-        // Obrigatórios
-        if (!validarObrigatorios()) {
-
-            valido = false;
-
-        }
-
-
-        // CPF
-        if (cpf && !validarCPF(cpf.value)) {
-
-            mostrarErro(
-                cpf,
-                "Digite um CPF válido."
-            );
-
-            valido = false;
-
-        }
-
-
-        // Telefone
-        if (
-            telefone &&
-            !validarTelefone(telefone.value)
-        ) {
-
-            mostrarErro(
-                telefone,
-                "Digite um telefone válido."
-            );
-
-            valido = false;
-
-        }
-
-
-        // Senhas
-        if (!verificarSenhas()) {
-
-            valido = false;
-
-        }
-
-
-        // Idade
-        if (
-            dataNascimento &&
-            !validarIdade(dataNascimento)
-        ) {
-
-            valido = false;
-
-        }
-
-
-        // Foto
-        if (
-            foto &&
-            !validarFoto()
-        ) {
-
-            valido = false;
-
-        }
-
-
-        // Impede envio
-        if (!valido) {
-
-            evento.preventDefault();
-
-            const primeiroErro =
-                form.querySelector(".campo-erro");
-
-            if (primeiroErro) {
-
-                primeiroErro.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-                primeiroErro.focus();
-
-            }
-
-        }
+        removerErro(cpf);
 
     });
 
 
+    telefone.addEventListener("input", function () {
+
+        removerErro(telefone);
+
+    });
+
+
+    dataNascimento.addEventListener(
+        "change",
+        function () {
+
+            removerErro(dataNascimento);
+
+        }
+    );
+
+
+    senha.addEventListener("input", function () {
+
+        removerErro(senha);
+
+    });
+
+
+    confirmarSenha.addEventListener(
+        "input",
+        function () {
+
+            removerErro(confirmarSenha);
+
+        }
+    );
+
+
+    foto.addEventListener("change", function () {
+
+        removerErro(foto);
+
+    });
+
+
+    cep.addEventListener("input", function () {
+
+        removerErro(cep);
+
+    });
+
+
+    /* ========================================
+       VALIDAR FORMULÁRIO
+    ======================================== */
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            let formularioValido = true;
+
+
+            /* CPF */
+
+            if (!validarCPF(cpf.value)) {
+
+                mostrarErro(
+                    cpf,
+                    "Digite um CPF válido."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* TELEFONE */
+
+            if (
+                !validarTelefone(
+                    telefone.value
+                )
+            ) {
+
+                mostrarErro(
+                    telefone,
+                    "Digite um telefone válido."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* IDADE */
+
+            if (
+                !validarIdade(
+                    dataNascimento.value
+                )
+            ) {
+
+                mostrarErro(
+                    dataNascimento,
+                    "É necessário ter pelo menos 18 anos."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* SENHAS */
+
+            if (
+                senha.value !==
+                confirmarSenha.value
+            ) {
+
+                mostrarErro(
+                    confirmarSenha,
+                    "As senhas não coincidem."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* FOTO */
+
+            if (!validarFoto()) {
+
+                mostrarErro(
+                    foto,
+                    "Escolha uma imagem JPG, PNG ou WEBP de até 5 MB."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* CEP */
+
+            const numeroCEP =
+                cep.value.replace(/\D/g, "");
+
+
+            if (numeroCEP.length !== 8) {
+
+                mostrarErro(
+                    cep,
+                    "Digite um CEP válido."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* ESTADO */
+
+            if (!estado.value) {
+
+                mostrarErro(
+                    estado,
+                    "Selecione o estado."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* CIDADE */
+
+            if (!cidade.value.trim()) {
+
+                mostrarErro(
+                    cidade,
+                    "Digite a cidade."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* BAIRRO */
+
+            if (!bairro.value.trim()) {
+
+                mostrarErro(
+                    bairro,
+                    "Digite o bairro."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* RUA */
+
+            if (!rua.value.trim()) {
+
+                mostrarErro(
+                    rua,
+                    "Digite a rua."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* NÚMERO */
+
+            const numero =
+                document.getElementById(
+                    "numero"
+                );
+
+
+            if (!numero.value.trim()) {
+
+                mostrarErro(
+                    numero,
+                    "Digite o número."
+                );
+
+                formularioValido = false;
+
+            }
+
+
+            /* RESULTADO */
+
+            if (!formularioValido) {
+
+                event.preventDefault();
+
+
+                // Vai para o primeiro erro
+
+                const primeiroErro =
+                    form.querySelector(
+                        ".campo-erro"
+                    );
+
+
+                if (primeiroErro) {
+
+                    primeiroErro.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }
+
+            }
+
+        }
+    );
 });
