@@ -1,22 +1,26 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cadastro - Encontre sua Babá</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <link rel="stylesheet" href="CSS/cadastro.css">
 </head>
 
-<!--ps. o index tbm tá meio bagunçado (pelo menos pra mim)-->
-
 <body>
+
     <!-- NAVBAR -->
     <nav class="nav_inteira">
+
         <div class="minha_navbar">
+
             <!-- LOGO -->
             <div class="logo">
                 <a href="index.html">
@@ -25,20 +29,37 @@
             </div>
 
             <div class="menu_direito">
+
                 <!-- MENU -->
                 <ul class="menu">
+
                     <li class="dropdown">
 
                         <a href="#">Cadastro</a>
+
                         <ul class="dropdown-content">
-                            <li><a href="cadastro-pais.html">Cadastro cliente</a></li>
-                            <li><a href="cadastro-babas.html">Cadastro Babá</a></li>
+
+                            <li>
+                                <a href="cadastro-pais.html">
+                                    Cadastro cliente
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="cadastro-babas.html">
+                                    Cadastro Babá
+                                </a>
+                            </li>
+
                         </ul>
+
                     </li>
+
                 </ul>
 
                 <!-- ÍCONE -->
                 <div class="icone">
+
                     <a href="login.html" title="Entrar como responsável">
                         <i class="fa-solid fa-user"></i>
                     </a>
@@ -46,37 +67,90 @@
                     <a href="" title="Entrar como babá">
                         <i class="fa-solid fa-user-nurse"></i>
                     </a>
+
                 </div>
 
                 <div class="hamburguer" onclick="abrirMenu()">
                     <i class="fa-solid fa-bars"></i>
                 </div>
+
             </div>
+
         </div>
 
         <!-- MINI NAVBAR -->
         <div class="mini_nav">
+
             <ul class="menu_mini">
-                <li><a href="guias.html">Guia para bebês</a></li>
-                <li><a href="favoritos.html">Favoritos</a></li>
-                <li><a href="babas.html">Babás</a></li>
-                <li><a href="ajuda.html">Ajuda</a></li>
-                <li><a href="sua_localizacao.html">Sua localização</a></li>
+
+                <li>
+                    <a href="guias.html">
+                        Guia para bebês
+                    </a>
+                </li>
+
+                <li>
+                    <a href="favoritos.html">
+                        Favoritos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="babas.html">
+                        Babás
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ajuda.html">
+                        Ajuda
+                    </a>
+                </li>
+
+                <li>
+                    <a href="sua_localizacao.html">
+                        Sua localização
+                    </a>
+                </li>
 
                 <li class="dropdown">
 
-                    <a href="#">Histórico</a>
+                    <a href="#">
+                        Histórico
+                    </a>
+
                     <ul class="dropdown-content">
-                        <li><a href="historico_contrato.html">Histórico de contrato</a></li>
-                        <li><a href="dividas_pagamentos.html">Dívidas e pagamentos​</a></li>
+
+                        <li>
+                            <a href="historico_contrato.html">
+                                Histórico de contrato
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="dividas_pagamentos.html">
+                                Dívidas e pagamentos
+                            </a>
+                        </li>
+
                     </ul>
+
                 </li>
 
-                <li><a href="sobre_nos.htm">Sobre Nós</a></li>
+                <li>
+                    <a href="sobre_nos.htm">
+                        Sobre Nós
+                    </a>
+                </li>
+
             </ul>
+
         </div>
+
     </nav>
 
+
+    <!-- CADASTRO -->
     <div class="container">
 
         <div class="card">
@@ -87,89 +161,400 @@
                 Cadastre-se.
             </p>
 
-            <form id="cadastroForm">
+
+            <form id="cadastroForm" action="cadastrar-cliente.php" method="POST" enctype="multipart/form-data">
 
                 <div class="form-grid">
 
+
+                    <!-- ========================= -->
+                    <!-- DADOS PESSOAIS -->
+                    <!-- ========================= -->
+
                     <div class="campo campo-full">
 
-                        <label>Nome Completo</label>
+                        <label for="nome">
+                            Nome
+                        </label>
 
-                        <input type="text" id="nomeCompleto" placeholder="Digite seu nome completo" required>
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Digite seu nome"
+                            maxlength="30"
+                            required
+                        >
 
                     </div>
+
+
+                    <div class="campo campo-full">
+
+                        <label for="sobrenome">
+                            Sobrenome
+                        </label>
+
+                        <input
+                            type="text"
+                            id="sobrenome"
+                            name="sobrenome"
+                            placeholder="Digite seu sobrenome"
+                            maxlength="30"
+                            required
+                        >
+
+                    </div>
+
 
                     <div class="campo">
 
-                        <label>CPF</label>
+                        <label for="cpf">
+                            CPF
+                        </label>
 
-                        <input type="text" placeholder="000.000.000-00" required>
+                        <input
+                            type="text"
+                            id="cpf"
+                            name="cpf"
+                            placeholder="000.000.000-00"
+                            maxlength="14"
+                            required
+                        >
 
                     </div>
+
 
                     <div class="campo">
 
-                        <label>Data de Nascimento</label>
+                        <label for="data_nascimento">
+                            Data de Nascimento
+                        </label>
 
-                        <input type="date" required>
+                        <input
+                            type="date"
+                            id="data_nascimento"
+                            name="data_nascimento"
+                            required
+                        >
 
                     </div>
+
+
+                    <!-- SEXO -->
+                    <div class="campo">
+
+                        <label for="sexo">
+                            Sexo
+                        </label>
+
+                        <select
+                            id="sexo"
+                            name="sexo"
+                            required
+                        >
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option value="masculino">
+                                Masculino
+                            </option>
+
+                            <option value="feminino">
+                                Feminino
+                            </option>
+
+                            <option value="outro">
+                                Outro
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- TELEFONE -->
+                    <div class="campo">
+
+                        <label for="telefone">
+                            Telefone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefone"
+                            name="telefone"
+                            placeholder="(11) 99999-9999"
+                            maxlength="20"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- ========================= -->
+                    <!-- DADOS DE ACESSO -->
+                    <!-- ========================= -->
 
                     <div class="campo">
 
-                        <label>Telefone</label>
+                        <label for="email">
+                            E-mail
+                        </label>
 
-                        <input type="tel" placeholder="(11) 99999-9999" required>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="email@exemplo.com"
+                            maxlength="100"
+                            required
+                        >
 
                     </div>
+
 
                     <div class="campo">
 
-                        <label>E-mail</label>
+                        <label for="senha">
+                            Senha
+                        </label>
 
-                        <input type="email" placeholder="email@exemplo.com" required>
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Digite sua senha"
+                            maxlength="30"
+                            required
+                        >
 
                     </div>
+
 
                     <div class="campo">
 
-                        <label>Senha</label>
+                        <label for="confirmar_senha">
+                            Confirmar Senha
+                        </label>
 
-                        <input type="password" placeholder="********" required>
+                        <input
+                            type="password"
+                            id="confirmar_senha"
+                            name="confirmar_senha"
+                            placeholder="Digite sua senha novamente"
+                            maxlength="30"
+                            required
+                        >
 
                     </div>
 
+
+                    <!-- ========================= -->
+                    <!-- FOTO -->
+                    <!-- ========================= -->
+
+                    <div class="campo campo-full">
+
+                        <label for="foto">
+                            Foto de Perfil
+                        </label>
+
+                        <input
+                            type="file"
+                            id="foto"
+                            name="foto"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+
+                    <!-- ========================= -->
+                    <!-- ENDEREÇO -->
+                    <!-- ========================= -->
+
+                    <div class="campo campo-full">
+
+                        <h3>
+                            Endereço
+                        </h3>
+
+                    </div>
+
+
+                    <!-- CEP -->
                     <div class="campo">
 
-                        <label>Confirmar Senha</label>
+                        <label for="cep">
+                            CEP
+                        </label>
 
-                        <input type="password" placeholder="********" required>
+                        <input
+                            type="text"
+                            id="cep"
+                            name="cep"
+                            placeholder="00000-000"
+                            maxlength="9"
+                            required
+                        >
 
                     </div>
 
+
+                    <!-- ESTADO -->
+                    <div class="campo">
+
+                        <label for="estado">
+                            Estado
+                        </label>
+
+                        <input
+                            type="text"
+                            id="estado"
+                            name="estado"
+                            placeholder="Ex.: São Paulo"
+                            maxlength="50"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CIDADE -->
+                    <div class="campo">
+
+                        <label for="cidade">
+                            Cidade
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cidade"
+                            name="cidade"
+                            placeholder="Digite sua cidade"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- BAIRRO -->
+                    <div class="campo">
+
+                        <label for="bairro">
+                            Bairro
+                        </label>
+
+                        <input
+                            type="text"
+                            id="bairro"
+                            name="bairro"
+                            placeholder="Digite seu bairro"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- RUA -->
+                    <div class="campo campo-full">
+
+                        <label for="rua">
+                            Rua
+                        </label>
+
+                        <input
+                            type="text"
+                            id="rua"
+                            name="rua"
+                            placeholder="Digite sua rua"
+                            maxlength="150"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- NÚMERO -->
+                    <div class="campo">
+
+                        <label for="numero">
+                            Número
+                        </label>
+
+                        <input
+                            type="text"
+                            id="numero"
+                            name="numero"
+                            placeholder="Ex.: 123"
+                            maxlength="10"
+                        >
+
+                    </div>
+
+
+                    <!-- COMPLEMENTO -->
+                    <div class="campo">
+
+                        <label for="complemento">
+                            Complemento
+                        </label>
+
+                        <input
+                            type="text"
+                            id="complemento"
+                            name="complemento"
+                            placeholder="Ex.: Apto 12"
+                            maxlength="150"
+                        >
+
+                    </div>
+
+
+                    <!-- TERMOS -->
                     <div class="termos">
 
-                        <input type="checkbox" required>
+                        <input
+                            type="checkbox"
+                            id="termos"
+                            name="termos"
+                            required
+                        >
 
-                        <label>
-                            Li e aceito os Termos de Uso e a Política de Privacidade.
+                        <label for="termos">
+
+                            Li e aceito os Termos de Uso
+                            e a Política de Privacidade.
+
                         </label>
 
                     </div>
 
+
+                    <!-- BOTÃO -->
                     <button type="submit">
+
                         Criar Conta
+
                     </button>
+
 
                 </div>
 
             </form>
 
+
             <div class="login">
 
                 Já possui uma conta?
 
-                <br><br>
+                <br>
+                <br>
 
                 <a href="login.html">
                     Entrar
@@ -181,77 +566,140 @@
 
     </div>
 
+
+    <!-- FOOTER -->
     <footer class="footer">
 
         <div class="footer-container">
 
             <div class="footer-logo">
+
                 <img src="img/teste.png" alt="Logo">
-                <p>Conectando famílias e babás com segurança.</p>
+
+                <p>
+                    Conectando famílias e babás com segurança.
+                </p>
+
             </div>
+
 
             <div class="footer-menu">
-                <a href="index.html">Home</a>
-                <a href="babas.html">Babás</a>
-                <a href="ajuda.html">Ajuda</a>
-                <a href="sobre_nos.html">Sobre Nós</a>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="babas.html">
+                    Babás
+                </a>
+
+                <a href="ajuda.html">
+                    Ajuda
+                </a>
+
+                <a href="sobre_nos.html">
+                    Sobre Nós
+                </a>
+
             </div>
 
+
             <div class="footer-redes">
-                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+
+                <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    aria-label="Facebook"
+                >
                     <i class="fab fa-facebook-f"></i>
                 </a>
 
-                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    aria-label="Instagram"
+                >
                     <i class="fab fa-instagram"></i>
                 </a>
 
-                <a href="https://x.com" target="_blank" aria-label="X">
+                <a
+                    href="https://x.com"
+                    target="_blank"
+                    aria-label="X"
+                >
                     <i class="fab fa-x-twitter"></i>
                 </a>
 
-                <a href="https://web.whatsapp.com" target="_blank" aria-label="WhatsApp">
+                <a
+                    href="https://web.whatsapp.com"
+                    target="_blank"
+                    aria-label="WhatsApp"
+                >
                     <i class="fab fa-whatsapp"></i>
                 </a>
+
             </div>
+
         </div>
+
 
         <div class="footer-copy">
+
             © 2026 Babá Amiga • Todos os direitos reservados.
+
         </div>
+
     </footer>
 
+
     <!-- MENU DO CELULAR -->
-    <div class="menu-mobile" id="menuMobile">
-        <a href="index.html">🏠 Home</a>
-        <a href="guias.html">👶 Guia para bebês</a>
-        <a href="favoritos.html">❤️ Favoritos</a>
-        <a href="babas.html">👩 Babás</a>
-        <a href="ajuda.html">📞 Ajuda</a>
-        <a href="sua_localizacao.html">📍 Sua localização</a>
-        <a href="historico_contrato.html">📜 Histórico</a>
-        <a href="dividas_pagamentos.html">💳 Pagamentos</a>
-        <a href="sobre_nos.htm">ℹ️ Sobre nós</a>
+    <div
+        class="menu-mobile"
+        id="menuMobile"
+    >
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="guias.html">
+            👶 Guia para bebês
+        </a>
+
+        <a href="favoritos.html">
+            ❤️ Favoritos
+        </a>
+
+        <a href="babas.html">
+            👩 Babás
+        </a>
+
+        <a href="ajuda.html">
+            📞 Ajuda
+        </a>
+
+        <a href="sua_localizacao.html">
+            📍 Sua localização
+        </a>
+
+        <a href="historico_contrato.html">
+            📜 Histórico
+        </a>
+
+        <a href="dividas_pagamentos.html">
+            💳 Pagamentos
+        </a>
+
+        <a href="sobre_nos.htm">
+            ℹ️ Sobre nós
+        </a>
+
     </div>
 
+
     <script src="js/celular.js"></script>
-
-    <script>
-        document.getElementById("cadastroForm").addEventListener("submit", function (e) {
-
-            e.preventDefault();
-
-            const nome = document.getElementById("nomeCompleto").value;
-
-            // Salva o nome para a próxima página
-            localStorage.setItem("nomeUsuario", nome);
-
-            // Redireciona para criação do perfil
-            window.location.href = "criar-perfil.html";
-
-        });
-    </script>
 
 </body>
 
 </html>
+
