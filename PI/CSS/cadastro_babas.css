@@ -248,6 +248,66 @@ button:hover {
     font-weight: bold;
 }
 
+h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #88cdf6;
+}
+
+.opcoes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.opcoes label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    background: #f5fbff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.opcoes input {
+    width: auto;
+}
+
+.mensagem {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.erro {
+    background: #ffe0e0;
+    color: #a00000;
+}
+
+.sucesso {
+    background: #dcf8e3;
+    color: #187534;
+}
+
 /*FOOTER*/
 
 .footer {
@@ -378,6 +438,10 @@ button:hover {
     .termos,
     button {
         grid-column: 1;
+    }
+
+    .opcoes {
+        grid-template-columns: 1fr;
     }
 
     .mini_nav {
