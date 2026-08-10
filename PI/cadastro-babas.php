@@ -76,6 +76,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ) {
 
         $erro = 'Preencha todos os dados pessoais obrigatórios.';
+    } elseif (strlen($senha) < 6) {
+
+        $erro = 'A senha deve ter no mínimo 6 caracteres.';
+    } elseif (!preg_match('/[^A-Za-z0-9]/', $senha)) {
+
+        $erro = 'A senha deve possuir pelo menos 1 caractere especial.';
     } elseif ($senha !== $confirmar_senha) {
 
         $erro = 'As senhas não coincidem.';
@@ -93,8 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         empty($estado) ||
         empty($cidade) ||
         empty($bairro) ||
-        empty($rua) ||
-        empty($numero)
+        empty($rua)
     ) {
 
         $erro = 'Preencha todos os dados obrigatórios do endereço.';
@@ -632,7 +637,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             name="senha"
                             id="senha"
                             placeholder="Digite sua senha"
+                            minlength="6"
                             required>
+
+                        <small id="requisitosSenha">
+                            Mínimo de 6 caracteres e pelo menos 1 caractere especial.
+                        </small>
 
                     </div>
 
@@ -923,8 +933,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             name="numero"
                             id="numero"
                             placeholder="Número"
-                            maxlength="10"
-                            required>
+                            maxlength="10">
 
                     </div>
 

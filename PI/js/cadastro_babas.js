@@ -181,82 +181,82 @@ document.addEventListener("DOMContentLoaded", function () {
             "/json/"
         )
 
-        .then(function (resposta) {
+            .then(function (resposta) {
 
-            if (!resposta.ok) {
+                if (!resposta.ok) {
 
-                throw new Error(
-                    "Erro ao consultar o CEP."
-                );
+                    throw new Error(
+                        "Erro ao consultar o CEP."
+                    );
 
-            }
+                }
 
-            return resposta.json();
+                return resposta.json();
 
-        })
+            })
 
-        .then(function (dados) {
+            .then(function (dados) {
 
-            if (dados.erro) {
+                if (dados.erro) {
+
+                    mostrarErro(
+                        cep,
+                        "CEP não encontrado."
+                    );
+
+                    return;
+
+                }
+
+
+                removerErro(cep);
+
+
+                // Rua
+
+                rua.value =
+                    dados.logradouro || "";
+
+
+                // Bairro
+
+                bairro.value =
+                    dados.bairro || "";
+
+
+                // Cidade
+
+                cidade.value =
+                    dados.localidade || "";
+
+
+                // Estado
+
+                estado.value =
+                    dados.uf || "";
+
+
+                // Caso o estado retornado
+                // não esteja no select
+
+                if (
+                    estado.value !== dados.uf
+                ) {
+
+                    estado.value = "";
+
+                }
+
+            })
+
+            .catch(function () {
 
                 mostrarErro(
                     cep,
-                    "CEP não encontrado."
+                    "Não foi possível consultar o CEP."
                 );
 
-                return;
-
-            }
-
-
-            removerErro(cep);
-
-
-            // Rua
-
-            rua.value =
-                dados.logradouro || "";
-
-
-            // Bairro
-
-            bairro.value =
-                dados.bairro || "";
-
-
-            // Cidade
-
-            cidade.value =
-                dados.localidade || "";
-
-
-            // Estado
-
-            estado.value =
-                dados.uf || "";
-
-
-            // Caso o estado retornado
-            // não esteja no select
-
-            if (
-                estado.value !== dados.uf
-            ) {
-
-                estado.value = "";
-
-            }
-
-        })
-
-        .catch(function () {
-
-            mostrarErro(
-                cep,
-                "Não foi possível consultar o CEP."
-            );
-
-        });
+            });
 
     }
 
@@ -628,6 +628,79 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+    /* ========================================
+   SEGURANÇA DA SENHA
+======================================== */
+
+    const requisitosSenha =
+        document.getElementById("requisitosSenha");
+
+
+    senha.addEventListener("input", function () {
+
+        const valor = senha.value;
+
+        const temTamanho =
+            valor.length >= 6;
+
+        const temEspecial =
+            /[^A-Za-z0-9]/.test(valor);
+
+
+        if (
+            temTamanho &&
+            temEspecial
+        ) {
+
+            requisitosSenha.textContent =
+                "Senha válida ✓";
+
+            requisitosSenha.style.color =
+                "green";
+
+            removerErro(senha);
+
+        } else {
+
+            let mensagem =
+                "A senha precisa ter ";
+
+            if (!temTamanho) {
+
+                mensagem +=
+                    "no mínimo 6 caracteres";
+
+            }
+
+            if (
+                !temTamanho &&
+                !temEspecial
+            ) {
+
+                mensagem +=
+                    " e ";
+
+            }
+
+            if (!temEspecial) {
+
+                mensagem +=
+                    "1 caractere especial";
+
+            }
+
+            mensagem += ".";
+
+            requisitosSenha.textContent =
+                mensagem;
+
+            requisitosSenha.style.color =
+                "#e53935";
+
+        }
+
+    });
+
 
     /* ========================================
        VALIDAR FORMULÁRIO
@@ -700,6 +773,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 mostrarErro(
                     confirmarSenha,
                     "As senhas não coincidem."
+                );
+
+                formularioValido = false;
+
+            }
+
+            const temTamanho =
+                senha.value.length >= 6;
+
+            const temEspecial =
+                /[^A-Za-z0-9]/.test(senha.value);
+
+
+            if (!temTamanho || !temEspecial) {
+
+                mostrarErro(
+                    senha,
+                    "A senha deve ter no mínimo 6 caracteres e pelo menos 1 caractere especial."
                 );
 
                 formularioValido = false;
@@ -788,26 +879,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 mostrarErro(
                     rua,
                     "Digite a rua."
-                );
-
-                formularioValido = false;
-
-            }
-
-
-            /* NÚMERO */
-
-            const numero =
-                document.getElementById(
-                    "numero"
-                );
-
-
-            if (!numero.value.trim()) {
-
-                mostrarErro(
-                    numero,
-                    "Digite o número."
                 );
 
                 formularioValido = false;
