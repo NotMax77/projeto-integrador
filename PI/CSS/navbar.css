@@ -1,143 +1,275 @@
+/* ===== Navbar — ajuste visual ===== */
 .nav_inteira {
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 999;
+    left: 0;
+    z-index: 9999;
 }
 
 .minha_navbar {
     width: 100%;
-    height: 80px;
-    background: #dff4ff;
+    min-height: 74px;
+    background: rgba(223, 244, 255, 0.97);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 60px;
+    padding: 10px clamp(20px, 5vw, 64px);
+    border-bottom: 1px solid rgba(93, 188, 214, 0.22);
+    box-shadow: 0 4px 18px rgba(31, 91, 110, 0.10);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
-    width: 150px;
+    width: 142px;
+    max-height: 52px;
+    object-fit: contain;
+    display: block;
     cursor: pointer;
+    transition: transform .2s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.025);
 }
 
 .menu_direito {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 18px;
+    margin-left: auto;
 }
 
 .menu {
     list-style: none;
-    gap: 20px;
-    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
 }
 
-.menu a {
+.menu > li > a {
+    display: flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0 14px;
+    border-radius: 10px;
     text-decoration: none;
-    color: black;
+    color: #20323a;
+    font-weight: 700;
+    transition: background .2s ease, color .2s ease;
 }
 
-.menu a:hover {
-    color: #0d6efd;
+.menu > li > a:hover {
+    color: #16749a;
+    background: rgba(255,255,255,.65);
 }
 
 .dropdown {
     position: relative;
 }
 
+.dropdown > a::after {
+    content: "⌄";
+    margin-left: 7px;
+    font-size: 15px;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
 .dropdown a {
-    cursor: context-menu;
+    cursor: pointer;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
-    left: -12px;
-    background: rgb(179, 244, 255);
-    width: 130px;
-    border-radius: 10px;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 190px;
+    width: auto;
+    margin: 0;
+    padding: 7px;
+    background: #fff;
+    border: 1px solid rgba(70, 160, 190, .16);
+    border-radius: 12px;
     list-style: none;
+    box-shadow: 0 12px 28px rgba(31, 91, 110, .16);
+}
+
+.dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 22px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-left: 1px solid rgba(70, 160, 190, .16);
+    border-top: 1px solid rgba(70, 160, 190, .16);
+    transform: rotate(45deg);
+}
+
+.dropdown-content li {
+    position: relative;
+    z-index: 1;
 }
 
 .dropdown-content a {
-    cursor: pointer;
     display: block;
-    padding: 12px;
-    color: black;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #26373e;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .18s ease, color .18s ease, padding-left .18s ease;
 }
 
 .dropdown-content a:hover {
-    background: rgba(0, 217, 255, 0.12);
-    padding-left: 22px;
+    color: #16749a;
+    background: #eefaff;
+    padding-left: 16px;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
     display: block;
 }
 
-.icone {
+.icone,
+.usuario-nav {
     display: flex;
     align-items: center;
-    gap: 15px;
-    font-size: 25px;
-    cursor: pointer;
+    gap: 9px;
 }
 
-.icone a {
-    color: rgb(255, 160, 105);
+.icone a,
+.usuario-nav a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #e98d51;
+    background: rgba(255,255,255,.58);
+    transition: transform .2s ease, background .2s ease, color .2s ease;
 }
 
-/*MINI NAVBAR*/
+.icone a:hover,
+.usuario-nav a:hover {
+    color: #16749a;
+    background: #fff;
+    transform: translateY(-1px);
+}
 
+.icone i,
+.usuario-nav i {
+    font-size: 18px;
+}
+
+.usuario-nav {
+    gap: 8px;
+}
+
+.usuario-nav span {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.58);
+    color: #29404a;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Barra secundária */
 .mini_nav {
     width: 100%;
-    height: 30px;
-    background: rgb(179, 244, 255);
+    min-height: 38px;
+    background: rgba(179, 244, 255, 0.96);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 4px 18px;
+    box-shadow: 0 2px 8px rgba(31, 91, 110, .08);
 }
 
 .menu_mini {
     display: flex;
-    gap: 35px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 22px;
     list-style: none;
-    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
 }
 
 .menu_mini a {
+    display: block;
+    padding: 5px 3px;
     text-decoration: none;
-    color: black;
+    color: #28444d;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: color .18s ease, border-color .18s ease;
 }
 
 .menu_mini a:hover {
-    color: #0d6efd;
+    color: #16749a;
+    border-bottom-color: #16749a;
 }
 
-/* ICONE CELULAR*/
-
+/* Menu mobile */
 .hamburguer {
-    font-size: 30px;
-    color: #ff9d5c;
+    display: none;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    border-radius: 10px;
+    color: #e98d51;
+    background: rgba(255,255,255,.62);
     cursor: pointer;
-    margin-left: auto;
+    transition: background .2s ease, color .2s ease;
 }
 
-/* MENU CELULAR*/
+.hamburguer:hover {
+    background: #fff;
+    color: #16749a;
+}
 
 .menu-mobile {
     position: fixed;
-    top: 80px;
-    right: -300px;
-    width: 280px;
-    background: white;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, .15);
-    transition: .3s;
+    top: 74px;
+    right: -320px;
+    width: min(300px, 88vw);
+    max-height: calc(100vh - 74px);
+    overflow-y: auto;
+    background: rgba(255,255,255,.98);
+    border-left: 1px solid rgba(70, 160, 190, .14);
+    border-bottom-left-radius: 16px;
+    box-shadow: -8px 10px 28px rgba(31, 91, 110, .18);
+    transition: right .25s ease;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    z-index: 9999;
+    padding: 12px;
+    z-index: 10000;
 }
 
 .menu-mobile.ativo {
@@ -146,37 +278,81 @@
 
 .menu-mobile a {
     text-decoration: none;
-    color: #333;
-    padding: 15px 10px;
-    border-bottom: 1px solid #eee;
+    color: #29404a;
+    padding: 12px 14px;
+    border-bottom: 1px solid #edf2f4;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background .18s ease, color .18s ease;
 }
 
 .menu-mobile a:hover {
-    background: #dff4ff;
+    background: #eefaff;
+    color: #16749a;
 }
 
-.hamburguer {
-    display: none;
+@media (max-width: 900px) {
+    .minha_navbar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .menu_mini {
+        gap: 3px 14px;
+        font-size: 13px;
+    }
 }
 
-@media (max-width:768px) {
-
+@media (max-width: 768px) {
     .mini_nav {
         display: none;
     }
 
     .minha_navbar {
-        padding: 15px 20px;
+        min-height: 68px;
+        padding: 8px 16px;
+    }
+
+    .logo img {
+        width: 128px;
+        max-height: 48px;
     }
 
     .menu_direito {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        margin-left: auto;
+        gap: 8px;
+    }
+
+    .menu_direito > .menu,
+    .menu_direito > .icone {
+        display: none;
+    }
+
+    .usuario-nav span {
+        display: none;
+    }
+
+    .usuario-nav a {
+        width: 38px;
+        height: 38px;
     }
 
     .hamburguer {
-        display: block;
+        display: inline-flex;
+    }
+
+    .menu-mobile {
+        top: 68px;
+        max-height: calc(100vh - 68px);
+    }
+}
+
+@media (max-width: 380px) {
+    .logo img {
+        width: 112px;
+    }
+
+    .usuario-nav a {
+        width: 35px;
+        height: 35px;
     }
 }

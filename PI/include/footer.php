@@ -8,10 +8,10 @@
         </div>
 
         <div class="footer-menu">
-            <a href="index.html">Home</a>
-            <a href="babas.html">Babás</a>
+            <a href="index.php">Home</a>
+            <a href="babas.php">Babás</a>
             <a href="ajuda.html">Ajuda</a>
-            <a href="sobre_nos.html">Sobre Nós</a>
+            <a href="sobre_nos.htm">Sobre Nós</a>
         </div>
 
         <div class="footer-redes">

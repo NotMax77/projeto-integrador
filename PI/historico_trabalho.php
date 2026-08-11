@@ -1,0 +1,127 @@
+<?php require_once __DIR__ . '/include/auth.php'; exigirTipo('baba'); ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/historico_contrato.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <?php include __DIR__ . '/include/navbar_publica.php'; ?>
+
+    <section class="historico">
+        <h1>Histórico de Trabalho</h1>
+
+        <p class="subtitulo">
+            Consulte todos os trabalhos realizados com os seus clientes.
+        </p>
+
+        <!-- PESQUISA -->
+        <section class="container-pesquisa">
+            <form class="form_pesquisa">
+                <input type="text" name="busca" placeholder="Pesquisar Babás..." required>
+                <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </section>
+
+        <div class="filtros">
+            <button class="ativo">Todos</button>
+            <button>Em andamento</button>
+            <button>Finalizados</button>
+            <button>Cancelados</button>
+        </div>
+
+        <!-- CARD -->
+        <div class="card-contrato">
+
+            <div class="foto">
+                <img src="img/cliente1.jpg" alt="">
+            </div>
+
+            <div class="coluna">
+                <h4>Cliente</h4>
+                <p>Maria Oliveira</p>
+            </div>
+
+            <div class="coluna">
+                <h4>Período</h4>
+                <p>10/06/2026</p>
+                <p>15/06/2026</p>
+            </div>
+
+            <div class="coluna">
+                <h4>Status</h4>
+
+                <span class="status finalizado">
+                    Finalizado
+                </span>
+
+                <button>Ver detalhes</button>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <img src="img/teste.png" alt="Logo">
+                <p>Conectando famílias e babás com segurança.</p>
+            </div>
+
+            <div class="footer-menu">
+                <a href="index.html">Home</a>
+                <a href="babas.html">Babás</a>
+                <a href="ajuda.html">Ajuda</a>
+                <a href="sobre_nos.html">Sobre Nós</a>
+            </div>
+
+            <div class="footer-redes">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://x.com" target="_blank" aria-label="X">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+
+                <a href="https://web.whatsapp.com" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+            © 2026 Babá Amiga • Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- MENU DO CELULAR -->
+    <div class="menu-mobile" id="menuMobile">
+        <a href="dashboard.html">🏠 Home</a>
+        <a href="guias.html">👶 Guia para bebês</a>
+        <a href="clientes.html">❤️ Clientes</a>
+        <a href="ajuda.html">📞 Ajuda</a>
+        <a href="sua_localizacao.html">📍 Sua localização</a>
+        <a href="historico_trabalho.html">📜 Histórico de Trabalho</a>
+        <a href="ganhos.html">💳 Ganhos</a>
+        <a href="sobre_nos.htm">ℹ️ Sobre nós</a>
+    </div>
+
+    <script src="js/celular.js"></script>
+</body>
+
+</html>

@@ -66,7 +66,7 @@ include 'include/navbar_publica.php';
                         <p class="avaliacao">
                             ⭐ 4.9
                         </p>
-                        <a href="informacao_baba.html"><button>Ver Perfil</button></a>
+                        <a href="perfil-baba.php?id=2"><button>Ver Perfil</button></a>
                     </div>
                 </div>
 

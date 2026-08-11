@@ -1,35 +1,40 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+$logado = isset($_SESSION['usuario_tipo'], $_SESSION['usuario_id']);
+$tipo = $_SESSION['usuario_tipo'] ?? null;
+$nome = $_SESSION['usuario_nome'] ?? '';
+?>
 <nav class="nav_inteira">
     <div class="minha_navbar">
-        <!-- LOGO -->
         <div class="logo">
-            <a href="index.html">
-                <img src="./img/teste.png" alt="Logo Artifex">
-            </a>
+            <a href="index.php"><img src="./img/teste.png" alt="Logo Babá Amiga"></a>
         </div>
 
         <div class="menu_direito">
-            <!-- MENU -->
-            <ul class="menu">
-                <li class="dropdown">
-
-                    <a href="#">Cadastro</a>
-                    <ul class="dropdown-content">
-                        <li><a href="cadastro-pais.html">Cadastro cliente</a></li>
-                        <li><a href="cadastro-babas.html">Cadastro Babá</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- ÍCONE -->
-            <div class="icone">
-                <a href="login.html" title="Entrar como responsável">
-                    <i class="fa-solid fa-user"></i>
-                </a>
-
-                <a href="" title="Entrar como babá">
-                    <i class="fa-solid fa-user-nurse"></i>
-                </a>
-            </div>
+            <?php if (!$logado): ?>
+                <ul class="menu">
+                    <li class="dropdown">
+                        <a href="#">Cadastro</a>
+                        <ul class="dropdown-content">
+                            <li><a href="cadastro-pais.html">Cadastro cliente</a></li>
+                            <li><a href="cadastro-babas.php">Cadastro babá</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="icone">
+                    <a href="login.php" title="Entrar"><i class="fa-solid fa-right-to-bracket"></i></a>
+                </div>
+            <?php else: ?>
+                <div class="usuario-nav">
+                    <span>Olá, <?= htmlspecialchars(explode(' ', trim($nome))[0] ?: 'usuário', ENT_QUOTES, 'UTF-8') ?></span>
+                    <a href="<?= $tipo === 'baba' ? 'perfil-baba.php' : 'perfil-cliente.php' ?>" title="Meu perfil">
+                        <i class="fa-solid <?= $tipo === 'baba' ? 'fa-user-nurse' : 'fa-user' ?>"></i>
+                    </a>
+                    <a href="logout.php" title="Sair"><i class="fa-solid fa-right-from-bracket"></i></a>
+                </div>
+            <?php endif; ?>
 
             <div class="hamburguer" onclick="abrirMenu()">
                 <i class="fa-solid fa-bars"></i>
@@ -37,39 +42,48 @@
         </div>
     </div>
 
-    <!-- MINI NAVBAR -->
     <div class="mini_nav">
         <ul class="menu_mini">
-            <li><a href="guias.html">Guia para bebês</a></li>
-            <li><a href="favoritos.html">Favoritos</a></li>
-            <li><a href="babas.html">Babás</a></li>
-            <li><a href="ajuda.html">Ajuda</a></li>
-            <li><a href="sua_localizacao.html">Sua localização</a></li>
-
-            <li class="dropdown">
-
-                <a href="#">Histórico</a>
-                <ul class="dropdown-content">
-                    <li><a href="historico_contrato.html">Histórico de contrato</a></li>
-                    <li><a href="dividas_pagamentos.html">Dívidas e pagamentos​</a></li>
-                </ul>
-            </li>
-
-            <li><a href="sobre_nos.htm">Sobre Nós</a></li>
+            <li><a href="guias.php">Guia para bebês</a></li>
+            <?php if ($tipo !== 'baba'): ?>
+                <li><a href="babas.php">Babás</a></li>
+            <?php endif; ?>
+            <?php if ($tipo === 'cliente'): ?>
+                <li><a href="favoritos.php">Favoritos</a></li>
+                <li><a href="historico_contrato.php">Histórico</a></li>
+                <li><a href="dividas_pagamentos.php">Pagamentos</a></li>
+            <?php elseif ($tipo === 'baba'): ?>
+                <li><a href="clientes.php">Clientes</a></li>
+                <li><a href="historico_trabalho.php">Histórico de trabalho</a></li>
+                <li><a href="ganhos.php">Ganhos</a></li>
+            <?php endif; ?>
+            <li><a href="ajuda.php">Ajuda</a></li>
+            <li><a href="sobre_nos.php">Sobre nós</a></li>
         </ul>
     </div>
 </nav>
 
-
-<!-- MENU MOBILE -->
 <div class="menu-mobile" id="menuMobile">
-    <a href="index.html">🏠 Home</a>
-    <a href="guias.html">👶 Guia para bebês</a>
-    <a href="favoritos.html">❤️ Favoritos</a>
-    <a href="babas.html">👩 Babás</a>
-    <a href="ajuda.html">📞 Ajuda</a>
-    <a href="sua_localizacao.html">📍 Sua localização</a>
-    <a href="historico_contrato.html">📜 Histórico</a>
-    <a href="dividas_pagamentos.html">💳 Pagamentos</a>
-    <a href="sobre_nos.htm">ℹ️ Sobre nós</a>
+    <a href="index.php">🏠 Home</a>
+    <a href="guias.php">👶 Guia para bebês</a>
+    <?php if ($tipo !== 'baba'): ?>
+        <a href="babas.php">👩 Babás</a>
+    <?php endif; ?>
+    <?php if ($tipo === 'cliente'): ?>
+        <a href="favoritos.php">❤️ Favoritos</a>
+        <a href="historico_contrato.php">📜 Histórico</a>
+        <a href="dividas_pagamentos.php">💳 Pagamentos</a>
+    <?php elseif ($tipo === 'baba'): ?>
+        <a href="clientes.php">👨‍👩‍👧 Clientes</a>
+        <a href="historico_trabalho.php">📜 Histórico</a>
+        <a href="ganhos.php">💰 Ganhos</a>
+    <?php endif; ?>
+    <a href="ajuda.php">📞 Ajuda</a>
+    <a href="sobre_nos.php">ℹ️ Sobre nós</a>
+    <?php if ($logado): ?>
+        <a href="<?= $tipo === 'baba' ? 'perfil-baba.php' : 'perfil-cliente.php' ?>">👤 Meu perfil</a>
+        <a href="logout.php">🚪 Sair</a>
+    <?php else: ?>
+        <a href="login.php">🔐 Entrar</a>
+    <?php endif; ?>
 </div>
