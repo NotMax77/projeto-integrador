@@ -11,7 +11,7 @@ include 'include/navbar_publica.php';
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/navbar_publica.css">
+    <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <title>Document</title>
 </head>
