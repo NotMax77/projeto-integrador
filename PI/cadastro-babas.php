@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include 'include/conexao.php';
 include 'include/navbar_publica.php';
@@ -408,8 +409,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $conexao->commit();
 
-                $sucesso =
-                    'Cadastro realizado com sucesso!';
+                session_regenerate_id(true);
+
+                $_SESSION['usuario_id'] = (int) $id_baba;
+                $_SESSION['usuario_tipo'] = 'baba';
+                $_SESSION['usuario_nome'] = $nome . ' ' . $sobrenome;
+                $_SESSION['usuario_foto'] = $caminhoFoto;
+
+                header('Location: dashboard.php');
+                exit;
+
             } catch (Exception $e) {
 
                 $conexao->rollback();

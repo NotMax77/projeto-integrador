@@ -1,9 +1,16 @@
 <?php
+
 declare(strict_types=1);
 require_once __DIR__ . '/include/auth.php';
 
 if (usuarioLogado()) {
-    header('Location: ' . ($_SESSION['usuario_tipo'] === 'baba' ? 'dashboard.php' : 'babas.php'));
+
+    if ($_SESSION['usuario_tipo'] === 'baba') {
+        header('Location: dashboard.php');
+    } else {
+        header('Location: index.php');
+    }
+
     exit;
 }
 
@@ -50,7 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['usuario_nome'] = $usuario['nome'] . ' ' . $usuario['sobrenome'];
             $_SESSION['usuario_foto'] = $usuario['foto'];
 
-            header('Location: ' . ($tipo === 'baba' ? 'dashboard.php' : 'babas.php'));
+            if ($tipo === 'baba') {
+                header('Location: dashboard.php');
+            } else {
+                header('Location: index.php');
+            }
+
             exit;
         }
 
@@ -60,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,39 +82,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
-<?php include __DIR__ . '/include/navbar_publica.php'; ?>
+    <?php include __DIR__ . '/include/navbar_publica.php'; ?>
 
-<div class="container">
-    <div class="card">
-        <h2>Bem-vindo!</h2>
-        <p class="subtitulo">Entre para encontrar a babá ideal ou acessar sua conta.</p>
+    <div class="container">
+        <div class="card">
+            <h2>Bem-vindo!</h2>
+            <p class="subtitulo">Entre para encontrar a babá ideal ou acessar sua conta.</p>
 
-        <?php if ($erro): ?>
-            <div class="mensagem erro" style="margin-bottom: 18px; padding: 12px; border-radius: 8px; background:#ffe5e5; color:#9b1c1c;">
-                <?= e($erro) ?>
+            <?php if ($erro): ?>
+                <div class="mensagem erro" style="margin-bottom: 18px; padding: 12px; border-radius: 8px; background:#ffe5e5; color:#9b1c1c;">
+                    <?= e($erro) ?>
+                </div>
+            <?php endif; ?>
+
+            <form action="login.php" method="POST">
+                <label for="email">E-mail</label>
+                <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" name="senha" placeholder="Digite sua senha" required>
+
+                <button type="submit">Entrar</button>
+            </form>
+
+            <div class="cadastro">
+                Ainda não possui uma conta?<br><br>
+                <a href="cadastro-pais.html">Criar conta de cliente</a>
+                <br>
+                <a href="cadastro-babas.php">Criar conta de babá</a>
             </div>
-        <?php endif; ?>
-
-        <form action="login.php" method="POST">
-            <label for="email">E-mail</label>
-            <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
-
-            <label for="senha">Senha</label>
-            <input id="senha" type="password" name="senha" placeholder="Digite sua senha" required>
-
-            <button type="submit">Entrar</button>
-        </form>
-
-        <div class="cadastro">
-            Ainda não possui uma conta?<br><br>
-            <a href="cadastro-pais.html">Criar conta de cliente</a>
-            <br>
-            <a href="cadastro-babas.php">Criar conta de babá</a>
         </div>
     </div>
-</div>
 
-<?php include __DIR__ . '/include/footer.php'; ?>
+    <?php include __DIR__ . '/include/footer.php'; ?>
 </body>
+
 </html>
