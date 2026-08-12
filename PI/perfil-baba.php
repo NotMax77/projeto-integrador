@@ -89,7 +89,7 @@ $totalAvaliacoes = (int)($avaliacao['total'] ?? 0);
             <p><?= $media !== null ? '⭐ '.e((string)$media).' ('.$totalAvaliacoes.' avaliações)' : 'Ainda sem avaliações' ?></p>
             <div class="acoes-perfil">
                 <?php if ($_SESSION['usuario_tipo'] === 'cliente'): ?>
-                    <a class="btn" href="conversa.html"><i class="fa-solid fa-comments"></i> Conversar</a>
+                    <a class="btn" href="conversa.php?id_baba=<?= (int)$idBaba ?>"><i class="fa-solid fa-comments"></i> Conversar</a>
                     <a class="btn secundario" href="babas.php">Voltar para babás</a>
                 <?php endif; ?>
             </div>
