@@ -129,7 +129,7 @@ body {
 }
 
 .acoes-perfil {
-    display: flex;
+    display: none;
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 15px
@@ -157,4 +157,17 @@ body {
         width: 125px;
         height: 125px
     }
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
 }

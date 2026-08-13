@@ -289,7 +289,7 @@ $estados = $conexao->query(
                     <h3><?= e($baba['nome'] . ' ' . $baba['sobrenome']) ?></h3>
                     <p><i class="fa-solid fa-location-dot"></i> <?= e($baba['cidade'] . ' - ' . $baba['estado']) ?></p>
                     <p><?= $baba['media'] !== null ? '⭐ ' . e((string)$baba['media']) . ' (' . (int)$baba['total_avaliacoes'] . ' avaliações)' : 'Sem avaliações' ?></p>
-                    <p><?= e(mb_strimwidth($baba['experiencia'] ?: 'Experiência não informada.', 0, 130, '...', 'UTF-8')) ?></p>
+                    <p><?= e(mb_strimwidth($baba['experiencia'] ?: 'Experiência não informada.', 0, 80, '...', 'UTF-8')) ?></p>
                 </div>
                 <div class="acoes"><a href="perfil-baba.php?id=<?= (int)$baba['id_baba'] ?>"><button type="button">Ver perfil</button></a></div>
             </article>

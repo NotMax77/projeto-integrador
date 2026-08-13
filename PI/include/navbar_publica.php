@@ -9,7 +9,9 @@ $nome = $_SESSION['usuario_nome'] ?? '';
 <nav class="nav_inteira">
     <div class="minha_navbar">
         <div class="logo">
-            <a href="index.php"><img src="./img/teste.png" alt="Logo Babá Amiga"></a>
+            <a href="<?= $tipo === 'baba' ? 'dashboard.php' : 'index.php' ?>">
+                <img src="./img/teste.png" alt="Logo Babá Amiga">
+            </a>
         </div>
 
         <div class="menu_direito">
@@ -18,7 +20,7 @@ $nome = $_SESSION['usuario_nome'] ?? '';
                     <li class="dropdown">
                         <a href="#">Cadastro</a>
                         <ul class="dropdown-content">
-                            <li><a href="cadastro-pais.html">Cadastro cliente</a></li>
+                            <li><a href="cadastrar-cliente.php">Cadastro cliente</a></li>
                             <li><a href="cadastro-babas.php">Cadastro babá</a></li>
                         </ul>
                     </li>

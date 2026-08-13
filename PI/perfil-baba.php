@@ -2,26 +2,26 @@
 declare(strict_types=1);
 require_once __DIR__ . '/include/auth.php';
 exigirLogin();
-
+ 
 $ehDono = $_SESSION['usuario_tipo'] === 'baba' && !isset($_GET['id']);
 $idBaba = $ehDono ? (int)$_SESSION['usuario_id'] : (int)($_GET['id'] ?? 0);
-
+ 
 if ($idBaba <= 0) {
     header('Location: babas.php');
     exit;
 }
-
+ 
 $mensagem = '';
 if ($ehDono && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefone = trim($_POST['telefone'] ?? '');
     $experiencia = trim($_POST['experiencia'] ?? '');
-
+ 
     $stmt = $conexao->prepare("UPDATE BABA SET telefone = ?, experiencia = ? WHERE id_baba = ?");
     $stmt->bind_param('ssi', $telefone, $experiencia, $idBaba);
     $stmt->execute();
     $mensagem = 'Perfil atualizado com sucesso!';
 }
-
+ 
 $stmt = $conexao->prepare(
     "SELECT b.*, e.cep, e.estado, e.cidade, e.bairro, e.rua, e.numero, e.complemento
      FROM BABA b
@@ -31,12 +31,12 @@ $stmt = $conexao->prepare(
 $stmt->bind_param('i', $idBaba);
 $stmt->execute();
 $baba = $stmt->get_result()->fetch_assoc();
-
+ 
 if (!$baba) {
     http_response_code(404);
     exit('Babá não encontrada.');
 }
-
+ 
 $stmt = $conexao->prepare(
     "SELECT ROUND(AVG(nota),1) media, COUNT(*) total
      FROM AVALIACAO WHERE id_baba = ?"
@@ -44,14 +44,14 @@ $stmt = $conexao->prepare(
 $stmt->bind_param('i', $idBaba);
 $stmt->execute();
 $avaliacao = $stmt->get_result()->fetch_assoc();
-
+ 
 $stmt = $conexao->prepare(
     "SELECT horario FROM DISPONIBILIDADE WHERE id_baba = ? ORDER BY FIELD(horario,'manha','tarde','noite')"
 );
 $stmt->bind_param('i', $idBaba);
 $stmt->execute();
 $disponibilidades = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
+ 
 $stmt = $conexao->prepare(
     "SELECT p.descricao FROM BABA_PREFERENCIA bp
      INNER JOIN PREFERENCIA p ON p.id_preferencia = bp.id_preferencia
@@ -60,7 +60,7 @@ $stmt = $conexao->prepare(
 $stmt->bind_param('i', $idBaba);
 $stmt->execute();
 $preferencias = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
+ 
 $foto = $baba['foto'] ?: 'img/baba.jpg';
 $nomeCompleto = trim($baba['nome'].' '.$baba['sobrenome']);
 $media = $avaliacao['media'] ?? null;
@@ -76,10 +76,10 @@ $totalAvaliacoes = (int)($avaliacao['total'] ?? 0);
 </head>
 <body>
 <?php include __DIR__ . '/include/navbar_publica.php'; ?>
-
+ 
 <main class="perfil-wrap">
     <?php if ($mensagem): ?><div class="alerta"><?= e($mensagem) ?></div><?php endif; ?>
-
+ 
     <section class="perfil-cabecalho">
         <img class="perfil-foto" src="<?= e($foto) ?>" alt="Foto de <?= e($nomeCompleto) ?>">
         <div>
@@ -95,13 +95,13 @@ $totalAvaliacoes = (int)($avaliacao['total'] ?? 0);
             </div>
         </div>
     </section>
-
+ 
     <div class="perfil-grid">
         <section class="perfil-card">
             <h2>Sobre mim</h2>
             <p><?= nl2br(e($baba['experiencia'] ?: 'Esta babá ainda não adicionou uma descrição.')) ?></p>
         </section>
-
+ 
         <section class="perfil-card">
             <h2>Informações</h2>
             <ul class="dados-list">
@@ -111,7 +111,7 @@ $totalAvaliacoes = (int)($avaliacao['total'] ?? 0);
                 <li><strong>Localização:</strong> <?= e($baba['bairro'].', '.$baba['cidade'].'/'.$baba['estado']) ?></li>
             </ul>
         </section>
-
+ 
         <section class="perfil-card">
             <h2>Disponibilidade</h2>
             <ul class="dados-list">
@@ -122,7 +122,7 @@ $totalAvaliacoes = (int)($avaliacao['total'] ?? 0);
             <?php endif; ?>
             </ul>
         </section>
-
+ 
         <section class="perfil-card">
             <h2>Preferências</h2>
             <ul class="dados-list">
@@ -133,7 +133,7 @@ $totalAvaliacoes = (int)($avaliacao['total'] ?? 0);
             <?php endif; ?>
             </ul>
         </section>
-
+ 
         <?php if ($ehDono): ?>
         <section class="perfil-card" style="grid-column:1/-1">
             <h2>Editar meu perfil</h2>
@@ -151,3 +151,5 @@ $totalAvaliacoes = (int)($avaliacao['total'] ?? 0);
 <?php include __DIR__ . '/include/footer.php'; ?>
 </body>
 </html>
+ 
+ 
