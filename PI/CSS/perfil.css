@@ -105,25 +105,28 @@ body {
 
 .form-edicao input,
 .form-edicao textarea,
-.form-avaliacao textarea {
+.form-avaliacao input,
+.form-avaliacao textarea,
+.form-avaliacao select {
     width: 100%;
     box-sizing: border-box;
     padding: 13px 14px;
     border: 1px solid var(--borda);
-    border-radius: 10px;
+    border-radius: 12px;
     font: inherit;
     background: #fff;
     color: var(--texto);
-    transition: border-color .2s, box-shadow .2s;
+    transition: border-color .2s, box-shadow .2s, transform .15s;
 }
 
 .form-edicao input:focus,
 .form-edicao textarea:focus,
+.form-avaliacao input:focus,
 .form-avaliacao textarea:focus,
 .form-avaliacao select:focus {
     outline: none;
     border-color: var(--verde);
-    box-shadow: 0 0 0 3px #4f8f7220;
+    box-shadow: 0 0 0 4px #4f8f7220;
 }
 
 .form-edicao textarea {
@@ -131,62 +134,115 @@ body {
     resize: vertical;
 }
 
-.form-avaliacao {
-    max-width: 720px;
-    padding: 22px;
-    margin-top: 16px;
-    background: #f8fbf9;
-    border: 1px solid #e3ebe6;
-    border-radius: 14px;
+/* Formulário de avaliação */
+.avaliacao-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #dce9e1;
+    background: linear-gradient(145deg, #ffffff 0%, #f7fbf9 100%);
 }
 
-.form-avaliacao > p {
-    margin: 0 0 4px;
-    color: #5e6963;
+.avaliacao-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, #d89b18, var(--verde));
+}
+
+.avaliacao-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.avaliacao-card h2::before {
+    content: "★";
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: #fff5d9;
+    color: #d89b18;
+    font-size: 19px;
+}
+
+.avaliacao-card > p {
+    margin: 0;
+    color: #647069;
+}
+
+.form-avaliacao {
+    grid-template-columns: minmax(180px, .75fr) minmax(300px, 1.8fr) auto;
+    align-items: end;
+    gap: 10px 14px;
+    max-width: none;
+    padding: 18px;
+    margin-top: 18px;
+    background: rgba(255, 255, 255, .82);
+    border: 1px solid #dfe9e3;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px #315d4810;
+}
+
+.campo-avaliacao {
+    display: grid;
+    gap: 7px;
+    min-width: 0;
+}
+
+.form-avaliacao label {
+    font-size: 13px;
+    color: #526059;
+}
+
+.form-avaliacao select {
+    min-height: 48px;
+    appearance: auto;
+    cursor: pointer;
+}
+
+.form-avaliacao select:hover,
+.form-avaliacao textarea:hover {
+    border-color: #b9cfc3;
+}
+
+.form-avaliacao select[name="nota"] {
+    font-size: 15px;
+    font-weight: 700;
+    color: #8a6412;
+}
+
+.form-avaliacao select[name="nota"] option {
+    color: #34423a;
+    font-size: 15px;
 }
 
 .form-avaliacao textarea {
-    min-height: 125px;
+    min-height: 48px;
+    height: 48px;
     resize: vertical;
 }
 
 .form-avaliacao textarea::placeholder {
-    color: #98a39d;
+    color: #9aa59f;
 }
 
-.form-avaliacao select {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px 42px 12px 14px;
-    border: 1px solid var(--borda);
-    border-radius: 10px;
-    background: #fff;
-    color: #34423a;
-    font: inherit;
-    cursor: pointer;
+.form-avaliacao .btn {
+    min-height: 48px;
+    white-space: nowrap;
+    border-radius: 12px;
+    padding: 12px 18px;
+    box-shadow: 0 5px 14px #2f6d551f;
 }
 
-.form-avaliacao select:hover {
-    border-color: var(--verde);
-}
-
-/*
- * Seletor de estrelas:
- * as opções já usam caracteres de estrela no HTML.
- * Este estilo deixa a nota visualmente destacada.
- */
-.form-avaliacao select[name="nota"] {
-    font-size: 19px;
-    font-weight: 700;
-    color: #d89b18;
-    letter-spacing: 1px;
-}
-
-.form-avaliacao select[name="nota"] option {
-    color: #d89b18;
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: 1px;
+.form-avaliacao .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px #2f6d5530;
 }
 
 .btn {
@@ -240,13 +296,6 @@ body {
     border: 1px solid #f0cccc;
 }
 
-.avaliacao-card {
-    border: 1px solid #e5ece7;
-}
-
-.avaliacao-card h2::first-letter {
-    color: #d89b18;
-}
 
 .avaliacoes-lista {
     margin-top: 0;
@@ -301,6 +350,17 @@ body {
     color: #68736d;
 }
 
+@media (max-width: 800px) {
+    .form-avaliacao {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .form-avaliacao textarea {
+        height: 110px;
+    }
+}
+
 @media (max-width: 700px) {
     .perfil-cabecalho {
         flex-direction: column;
@@ -317,7 +377,7 @@ body {
     }
 
     .form-avaliacao {
-        padding: 18px;
+        padding: 16px;
     }
 
     .comentario-topo {

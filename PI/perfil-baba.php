@@ -158,7 +158,7 @@ $totalAvaliacoes = (int)($avaliacao['total'] ?? 0);
     <title>Perfil de <?= e($nomeCompleto) ?> | Babá Amiga</title>
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/perfil.css">
+    <link rel="stylesheet" href="CSS/perfil.css?v=20260813">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -243,17 +243,24 @@ $totalAvaliacoes = (int)($avaliacao['total'] ?? 0);
                         <form class="form-avaliacao" method="POST">
                             <input type="hidden" name="enviar_avaliacao" value="1">
                             <input type="hidden" name="id_contrato" value="<?= (int)$contratoDisponivel['id_contrato'] ?>">
-                            <label for="nota">Sua nota</label>
-                            <select id="nota" name="nota" required>
-                                <option value="">Selecione</option>
-                                <option value="5">★★★★★ — Excelente</option>
-                                <option value="4">★★★★☆ — Muito boa</option>
-                                <option value="3">★★★☆☆ — Boa</option>
-                                <option value="2">★★☆☆☆ — Regular</option>
-                                <option value="1">★☆☆☆☆ — Ruim</option>
-                            </select>
-                            <label for="comentario">Comentário</label>
-                            <textarea id="comentario" name="comentario" maxlength="1000" placeholder="Conte como foi sua experiência..."></textarea>
+
+                            <div class="campo-avaliacao campo-nota">
+                                <label for="nota">Sua nota</label>
+                                <select id="nota" name="nota" required>
+                                    <option value="">Selecione</option>
+                                    <option value="5">★★★★★ — Excelente</option>
+                                    <option value="4">★★★★☆ — Muito boa</option>
+                                    <option value="3">★★★☆☆ — Boa</option>
+                                    <option value="2">★★☆☆☆ — Regular</option>
+                                    <option value="1">★☆☆☆☆ — Ruim</option>
+                                </select>
+                            </div>
+
+                            <div class="campo-avaliacao campo-comentario">
+                                <label for="comentario">Comentário</label>
+                                <textarea id="comentario" name="comentario" maxlength="1000" placeholder="Conte como foi sua experiência..."></textarea>
+                            </div>
+
                             <button class="btn" type="submit"><i class="fa-solid fa-star"></i> Publicar avaliação</button>
                         </form>
                     <?php else: ?>
